@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import MoodSlider from "@/components/ui/MoodSlider";
 import AIReplyCard from "@/components/journal/AIReplyCard";
+import WritingPrompts from "@/components/journal/WritingPrompts";
 
 export default function NewEntryPage() {
   const router = useRouter();
@@ -51,6 +52,11 @@ export default function NewEntryPage() {
           <div className="bg-white rounded-2xl border border-gray-100 p-6">
             <MoodSlider value={moodScore} onChange={setMoodScore} />
           </div>
+
+          <WritingPrompts
+            moodScore={moodScore}
+            onSelect={(prompt) => setContent((prev) => prev ? prev + "\n" + prompt : prompt)}
+          />
 
           <div className="bg-white rounded-2xl border border-gray-100 p-6">
             <label className="block text-sm font-medium text-gray-700 mb-3">
