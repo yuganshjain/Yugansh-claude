@@ -8,52 +8,52 @@ export default async function SettingsPage() {
 
   return (
     <div className="max-w-2xl">
-      <h1 className="text-2xl font-bold text-gray-900 mb-8">Settings</h1>
+      <h1 className="text-2xl font-bold mb-8" style={{ color: "var(--text-primary)" }}>Settings</h1>
 
-      <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
-        <h2 className="text-sm font-semibold text-gray-700 mb-4">Account</h2>
+      <div className="rounded-2xl border p-6 mb-6" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+        <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-secondary)" }}>Account</h2>
         <div className="space-y-3">
-          <div className="flex justify-between text-sm">
-            <span className="text-gray-500">Name</span>
-            <span className="font-medium text-gray-900">{user?.name}</span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-gray-500">Email</span>
-            <span className="font-medium text-gray-900">{user?.email}</span>
-          </div>
-          <div className="flex justify-between text-sm">
-            <span className="text-gray-500">Member since</span>
-            <span className="font-medium text-gray-900">
-              {user?.createdAt ? new Date(user.createdAt).toLocaleDateString("en-US", { month: "long", year: "numeric" }) : "—"}
-            </span>
-          </div>
+          {[
+            { label: "Name", value: user?.name },
+            { label: "Email", value: user?.email },
+            { label: "Member since", value: user?.createdAt ? new Date(user.createdAt).toLocaleDateString("en-US", { month: "long", year: "numeric" }) : "—" },
+          ].map(({ label, value }) => (
+            <div key={label} className="flex justify-between text-sm">
+              <span style={{ color: "var(--text-secondary)" }}>{label}</span>
+              <span className="font-medium" style={{ color: "var(--text-primary)" }}>{value}</span>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 p-6">
-        <h2 className="text-sm font-semibold text-gray-700 mb-4">Plan</h2>
+      <div className="rounded-2xl border p-6" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+        <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-secondary)" }}>Plan</h2>
         <div className="flex items-center justify-between">
           <div>
-            <div className="font-semibold text-gray-900">
+            <div className="font-semibold" style={{ color: "var(--text-primary)" }}>
               {user?.plan === "PRO" ? "Pro Plan" : "Free Plan"}
             </div>
-            <div className="text-sm text-gray-500 mt-0.5">
-              {user?.plan === "PRO"
-                ? "Unlimited entries, AI replies, weekly + monthly reports"
-                : "7 free entries included"}
+            <div className="text-sm mt-0.5" style={{ color: "var(--text-secondary)" }}>
+              {user?.plan === "PRO" ? "Unlimited entries, AI replies, reports" : "7 free entries included"}
             </div>
           </div>
           {user?.plan === "FREE" && (
-            <div className="bg-violet-600 text-white px-4 py-2 rounded-lg text-sm font-medium opacity-75 cursor-not-allowed">
+            <div className="text-white px-4 py-2 rounded-lg text-sm font-medium opacity-75 cursor-not-allowed"
+              style={{ backgroundColor: "var(--accent)" }}>
               Upgrade — $7/mo
             </div>
           )}
           {user?.plan === "PRO" && (
-            <span className="bg-violet-100 text-violet-700 text-xs font-medium px-3 py-1 rounded-full">Active</span>
+            <span className="text-xs font-medium px-3 py-1 rounded-full"
+              style={{ backgroundColor: "var(--accent-light)", color: "var(--accent-text)" }}>
+              Active
+            </span>
           )}
         </div>
         {user?.plan === "FREE" && (
-          <p className="text-xs text-gray-400 mt-3">Stripe payments coming soon. All AI features active in this demo.</p>
+          <p className="text-xs mt-3" style={{ color: "var(--text-muted)" }}>
+            Stripe payments coming soon. All AI features active in this demo.
+          </p>
         )}
       </div>
     </div>

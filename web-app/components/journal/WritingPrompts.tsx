@@ -22,47 +22,32 @@ export default function WritingPrompts({
 
   if (!visible) {
     return (
-      <button
-        onClick={() => setVisible(true)}
-        className="text-xs text-violet-500 hover:text-violet-700 flex items-center gap-1"
-        type="button"
-      >
+      <button onClick={() => setVisible(true)} type="button"
+        className="text-xs flex items-center gap-1" style={{ color: "var(--accent)" }}>
         ✨ Show writing prompts
       </button>
     );
   }
 
   return (
-    <div className="bg-violet-50 border border-violet-100 rounded-xl p-4 space-y-2">
+    <div className="rounded-xl p-4 space-y-2 border"
+      style={{ backgroundColor: "var(--accent-light)", borderColor: "var(--border-color)" }}>
       <div className="flex items-center justify-between mb-2">
-        <span className="text-xs font-medium text-violet-700">✨ Need a starting point?</span>
+        <span className="text-xs font-medium" style={{ color: "var(--accent-text)" }}>✨ Need a starting point?</span>
         <div className="flex items-center gap-3">
-          <button
-            onClick={refresh}
-            type="button"
-            className="text-xs text-violet-500 hover:text-violet-700 transition"
-          >
+          <button onClick={refresh} type="button" className="text-xs transition" style={{ color: "var(--accent)" }}>
             ↻ New prompts
           </button>
-          <button
-            onClick={() => setVisible(false)}
-            type="button"
-            className="text-xs text-gray-400 hover:text-gray-600 transition"
-          >
+          <button onClick={() => setVisible(false)} type="button" className="text-xs transition" style={{ color: "var(--text-muted)" }}>
             Hide
           </button>
         </div>
       </div>
       {prompts.map((prompt, i) => (
-        <button
-          key={i}
-          type="button"
-          onClick={() => {
-            onSelect(prompt + "\n\n");
-            setVisible(false);
-          }}
-          className="w-full text-left text-sm text-gray-700 bg-white border border-violet-100 rounded-lg px-3 py-2.5 hover:border-violet-300 hover:bg-violet-50 transition leading-relaxed"
-        >
+        <button key={i} type="button"
+          onClick={() => { onSelect(prompt + "\n\n"); setVisible(false); }}
+          className="w-full text-left text-sm rounded-lg px-3 py-2.5 border transition leading-relaxed"
+          style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)", color: "var(--text-primary)" }}>
           {prompt}
         </button>
       ))}

@@ -18,20 +18,13 @@ export default function NewEntryPage() {
     if (!content.trim()) return;
     setLoading(true);
     setError("");
-
     const res = await fetch("/api/entries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content, moodScore }),
     });
     const data = await res.json();
-
-    if (!res.ok) {
-      setError(data.error || "Failed to save entry");
-      setLoading(false);
-      return;
-    }
-
+    if (!res.ok) { setError(data.error || "Failed to save entry"); setLoading(false); return; }
     setAiReply(data.aiReply);
     setLoading(false);
   }
@@ -39,8 +32,8 @@ export default function NewEntryPage() {
   return (
     <div className="max-w-2xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Today&apos;s entry</h1>
-        <p className="text-gray-500 text-sm mt-1">
+        <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>Today&apos;s entry</h1>
+        <p className="text-sm mt-1" style={{ color: "var(--text-secondary)" }}>
           {new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })}
         </p>
       </div>
@@ -49,7 +42,7 @@ export default function NewEntryPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {error && <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg">{error}</div>}
 
-          <div className="bg-white rounded-2xl border border-gray-100 p-6">
+          <div className="rounded-2xl border p-6" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
             <MoodSlider value={moodScore} onChange={setMoodScore} />
           </div>
 
@@ -58,8 +51,8 @@ export default function NewEntryPage() {
             onSelect={(prompt) => setContent((prev) => prev ? prev + "\n" + prompt : prompt)}
           />
 
-          <div className="bg-white rounded-2xl border border-gray-100 p-6">
-            <label className="block text-sm font-medium text-gray-700 mb-3">
+          <div className="rounded-2xl border p-6" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+            <label className="block text-sm font-medium mb-3" style={{ color: "var(--text-secondary)" }}>
               What&apos;s on your mind?
             </label>
             <textarea
@@ -67,13 +60,15 @@ export default function NewEntryPage() {
               onChange={(e) => setContent(e.target.value)}
               rows={10}
               placeholder="Write freely... This is your safe space. No judgment, just reflection."
-              className="w-full text-gray-700 placeholder-gray-300 text-sm leading-relaxed resize-none focus:outline-none"
+              className="w-full text-sm leading-relaxed resize-none focus:outline-none placeholder-gray-300 bg-transparent"
+              style={{ color: "var(--text-primary)" }}
               required
             />
           </div>
 
           <button type="submit" disabled={loading || !content.trim()}
-            className="w-full bg-violet-600 text-white py-3 rounded-xl font-medium hover:bg-violet-700 disabled:opacity-50 transition flex items-center justify-center gap-2">
+            className="w-full text-white py-3 rounded-xl font-medium disabled:opacity-50 transition flex items-center justify-center gap-2"
+            style={{ backgroundColor: "var(--accent)" }}>
             {loading ? (
               <>
                 <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
@@ -87,21 +82,26 @@ export default function NewEntryPage() {
         </form>
       ) : (
         <div className="space-y-6">
-          <div className="bg-white rounded-2xl border border-gray-100 p-6">
+          <div className="rounded-2xl border p-6" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-sm font-medium text-gray-500">Your entry</span>
-              <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">Mood {moodScore}/10</span>
+              <span className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>Your entry</span>
+              <span className="text-xs px-2 py-0.5 rounded-full"
+                style={{ backgroundColor: "var(--bg-secondary)", color: "var(--text-muted)" }}>
+                Mood {moodScore}/10
+              </span>
             </div>
-            <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-wrap">{content}</p>
+            <p className="text-sm leading-relaxed whitespace-pre-wrap" style={{ color: "var(--text-primary)" }}>{content}</p>
           </div>
           <AIReplyCard reply={aiReply} />
           <div className="flex gap-3">
             <button onClick={() => router.push("/dashboard")}
-              className="flex-1 border border-gray-200 text-gray-600 py-2.5 rounded-xl font-medium hover:bg-gray-50 transition">
+              className="flex-1 border py-2.5 rounded-xl font-medium transition text-sm"
+              style={{ borderColor: "var(--border-color)", color: "var(--text-secondary)", backgroundColor: "var(--bg-card)" }}>
               Back to dashboard
             </button>
             <button onClick={() => { setContent(""); setMoodScore(5); setAiReply(null); }}
-              className="flex-1 bg-violet-600 text-white py-2.5 rounded-xl font-medium hover:bg-violet-700 transition">
+              className="flex-1 text-white py-2.5 rounded-xl font-medium transition text-sm"
+              style={{ backgroundColor: "var(--accent)" }}>
               Write another
             </button>
           </div>
