@@ -4,6 +4,8 @@ import Link from "next/link";
 import MoodChart from "@/components/dashboard/MoodChart";
 import EntryList from "@/components/dashboard/EntryList";
 import StreakBadge from "@/components/dashboard/StreakBadge";
+import MoodCalendar from "@/components/dashboard/MoodCalendar";
+import MemoryLane from "@/components/dashboard/MemoryLane";
 
 async function getStreak(userId: string): Promise<number> {
   const entries = await prisma.journalEntry.findMany({
@@ -104,6 +106,10 @@ export default async function DashboardPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="bg-white rounded-2xl p-6 border border-gray-100 mb-8">
+        <MoodCalendar />
       </div>
 
       <div className="bg-white rounded-2xl p-6 border border-gray-100">
