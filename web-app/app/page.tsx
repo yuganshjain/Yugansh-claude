@@ -29,14 +29,14 @@ export default function LandingPage() {
           <span className="text-violet-600"> to be understood</span>
         </h1>
         <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-10">
-          Write your daily journal and get a thoughtful AI response, weekly mood reports, and monthly emotional insights — all for $7/month.
+          Write your daily journal and get a thoughtful AI response, weekly mood reports, and monthly emotional insights — all in one place.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href="/register"
             className="bg-violet-600 text-white px-8 py-3.5 rounded-xl font-semibold text-lg hover:bg-violet-700 transition shadow-lg shadow-violet-200">
             Start journaling free
           </Link>
-          <span className="text-sm text-gray-400">7 free entries · No credit card</span>
+          <span className="text-sm text-gray-400">Free to get started · No credit card</span>
         </div>
       </section>
 
@@ -74,38 +74,6 @@ export default function LandingPage() {
               <p className="text-gray-500 text-sm">{s.desc}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="px-6 py-16 max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Simple pricing</h2>
-        <p className="text-gray-500 mb-10">Less than a coffee per week</p>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 border border-gray-200 text-left">
-            <div className="font-semibold text-gray-900 mb-1">Free</div>
-            <div className="text-3xl font-bold text-gray-900 mb-4">$0</div>
-            <ul className="space-y-2 text-sm text-gray-600 mb-6">
-              {["7 journal entries", "Basic mood tracking", "No AI replies"].map((f) => (
-                <li key={f} className="flex items-center gap-2"><span className="text-gray-400">○</span> {f}</li>
-              ))}
-            </ul>
-            <Link href="/register" className="block text-center border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-50 transition text-sm font-medium">
-              Get started
-            </Link>
-          </div>
-          <div className="bg-violet-600 rounded-2xl p-6 text-left text-white">
-            <div className="font-semibold mb-1">Pro</div>
-            <div className="text-3xl font-bold mb-4">$7<span className="text-lg font-normal opacity-75">/mo</span></div>
-            <ul className="space-y-2 text-sm mb-6 opacity-90">
-              {["Unlimited entries", "AI daily replies", "Weekly mood reports", "Monthly deep dives", "Streak system"].map((f) => (
-                <li key={f} className="flex items-center gap-2"><span>✓</span> {f}</li>
-              ))}
-            </ul>
-            <Link href="/register" className="block text-center bg-white text-violet-600 py-2 rounded-lg hover:bg-violet-50 transition text-sm font-semibold">
-              Start free trial
-            </Link>
-          </div>
         </div>
       </section>
 
