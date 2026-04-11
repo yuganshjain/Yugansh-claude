@@ -88,10 +88,10 @@ export default async function DashboardPage() {
     <div className="max-w-4xl">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
             Good {greeting}, {session?.user?.name?.split(" ")[0]} 👋
           </h1>
-          <p className="text-gray-500 mt-1 text-sm">
+          <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
             {todayEntry ? "You've journaled today. Great job!" : "You haven't journaled yet today."}
           </p>
         </div>
@@ -113,40 +113,40 @@ export default async function DashboardPage() {
       )}
 
       <div className="grid md:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white rounded-2xl p-6 border border-gray-100">
-          <h3 className="text-sm font-semibold text-gray-700 mb-4">Mood this week</h3>
+        <div className="rounded-2xl p-6 border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+          <h3 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Mood this week</h3>
           <MoodChart data={last7} />
         </div>
-        <div className="bg-white rounded-2xl p-6 border border-gray-100">
-          <h3 className="text-sm font-semibold text-gray-700 mb-4">Stats</h3>
+        <div className="rounded-2xl p-6 border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+          <h3 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Stats</h3>
           <div className="space-y-3 mt-2">
             <div className="flex justify-between text-sm">
-              <span className="text-gray-500">Total entries</span>
-              <span className="font-semibold text-gray-900">{entries.length}</span>
+              <span style={{ color: "var(--text-secondary)" }}>Total entries</span>
+              <span className="font-semibold" style={{ color: "var(--text-primary)" }}>{entries.length}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-gray-500">Avg mood</span>
-              <span className="font-semibold text-gray-900">
+              <span style={{ color: "var(--text-secondary)" }}>Avg mood</span>
+              <span className="font-semibold" style={{ color: "var(--text-primary)" }}>
                 {entries.length > 0 ? (entries.reduce((s, e) => s + e.moodScore, 0) / entries.length).toFixed(1) : "—"}/10
               </span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-gray-500">Current streak</span>
-              <span className="font-semibold text-gray-900">{streak} days 🔥</span>
+              <span style={{ color: "var(--text-secondary)" }}>Current streak</span>
+              <span className="font-semibold" style={{ color: "var(--text-primary)" }}>{streak} days 🔥</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 border border-gray-100 mb-8">
+      <div className="rounded-2xl p-6 border mb-8" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
         <MoodCalendar />
       </div>
 
       <MemoryLane memories={memories} />
 
-      <div className="bg-white rounded-2xl p-6 border border-gray-100">
+      <div className="rounded-2xl p-6 border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-semibold text-gray-700">Recent entries</h3>
+          <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Recent entries</h3>
           <Link href="/journal/new" className="text-xs text-violet-600 hover:underline font-medium">+ New entry</Link>
         </div>
         <EntryList entries={entries} />
