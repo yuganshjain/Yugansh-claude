@@ -28,17 +28,47 @@ async function getStreak(userId: string): Promise<number> {
   return streak;
 }
 
+async function getMemories(userId: string) {
+  const now = new Date();
+  const targets = [
+    { daysAgo: 7, label: "1 week ago" },
+    { daysAgo: 30, label: "1 month ago" },
+    { daysAgo: 365, label: "1 year ago" },
+  ];
+
+  const memories = [];
+  for (const { daysAgo, label } of targets) {
+    const targetDate = new Date(now);
+    targetDate.setDate(now.getDate() - daysAgo);
+    // Look for entries within ±1 day of the target
+    const start = new Date(targetDate);
+    start.setHours(0, 0, 0, 0);
+    const end = new Date(targetDate);
+    end.setHours(23, 59, 59, 999);
+
+    const entry = await prisma.journalEntry.findFirst({
+      where: { userId, createdAt: { gte: start, lte: end } },
+      orderBy: { createdAt: "desc" },
+    });
+    if (entry) {
+      memories.push({ ...entry, label });
+    }
+  }
+  return memories;
+}
+
 export default async function DashboardPage() {
   const session = await auth();
   const userId = (session!.user as any).id as string;
 
-  const [entries, streak] = await Promise.all([
+  const [entries, streak, memories] = await Promise.all([
     prisma.journalEntry.findMany({
       where: { userId },
       orderBy: { createdAt: "desc" },
       take: 10,
     }),
     getStreak(userId),
+    getMemories(userId),
   ]);
 
   const last7 = entries.slice(0, 7).reverse().map((e) => ({
@@ -111,6 +141,8 @@ export default async function DashboardPage() {
       <div className="bg-white rounded-2xl p-6 border border-gray-100 mb-8">
         <MoodCalendar />
       </div>
+
+      <MemoryLane memories={memories} />
 
       <div className="bg-white rounded-2xl p-6 border border-gray-100">
         <div className="flex items-center justify-between mb-4">
