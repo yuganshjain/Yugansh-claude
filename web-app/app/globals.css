@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@layer base {
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #7c3aed;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
