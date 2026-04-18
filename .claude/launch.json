@@ -13,5 +13,12 @@
       "runtimeArgs": ["run", "dev", "--prefix", "dslr-masterclass", "--", "--port", "5179"],
       "port": 5179
     }
+    ,{
+      "name": "deckverse",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "fun-projects/deckverse"],
+      "port": 3003,
+      "autoPort": true
+    }
   ]
 }
