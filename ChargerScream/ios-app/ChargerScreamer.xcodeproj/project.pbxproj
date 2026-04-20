@@ -19,6 +19,7 @@
 		97FE25A262E2F736EE8C1A56 /* MascotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CF49C1DCDB2FE51DA43B42 /* MascotView.swift */; };
 		B369EE2B5B819594A58236FD /* SoundPackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20329BD495678AD0645274F9 /* SoundPackStore.swift */; };
 		B45872CFBDDF7E3A6331DCBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57E7758CA3D2F56EFD6EE559 /* Assets.xcassets */; };
+		C460A649EE6F0B71BC6665FE /* ToneSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5511A412A905E9EC536856 /* ToneSynthesizer.swift */; };
 		D141158AB32E128D7C424358 /* SpeechPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794675E435E98F0099F5F40A /* SpeechPlayer.swift */; };
 		FFF87D03160996DDA577BA4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1153EF727F01C73071E82 /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		94D002D53253C960CDF83478 /* SoundPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPack.swift; sourceTree = "<group>"; };
 		A4CF49C1DCDB2FE51DA43B42 /* MascotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MascotView.swift; sourceTree = "<group>"; };
 		D05AB5336DE095367741F560 /* ChargerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerMonitor.swift; sourceTree = "<group>"; };
+		DC5511A412A905E9EC536856 /* ToneSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneSynthesizer.swift; sourceTree = "<group>"; };
 		EBB9E7B70FDCDE2E47D050CA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		F14FADA07CFD0ED4249444EA /* AgeGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGateView.swift; sourceTree = "<group>"; };
 		F5F3025C9035D450F33A5173 /* ChargerScreamer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ChargerScreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				EBB9E7B70FDCDE2E47D050CA /* HapticManager.swift */,
 				20329BD495678AD0645274F9 /* SoundPackStore.swift */,
 				794675E435E98F0099F5F40A /* SpeechPlayer.swift */,
+				DC5511A412A905E9EC536856 /* ToneSynthesizer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				4F6BF94F857BACB47B769902 /* SoundPack.swift in Sources */,
 				B369EE2B5B819594A58236FD /* SoundPackStore.swift in Sources */,
 				D141158AB32E128D7C424358 /* SpeechPlayer.swift in Sources */,
+				C460A649EE6F0B71BC6665FE /* ToneSynthesizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

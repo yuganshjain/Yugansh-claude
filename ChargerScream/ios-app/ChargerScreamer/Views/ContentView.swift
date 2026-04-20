@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var chargerMonitor = ChargerMonitor()
-    @StateObject private var speechPlayer = SpeechPlayer()
+    @StateObject private var soundEngine = SoundEngine()
     @StateObject private var soundPackStore = SoundPackStore()
     private let hapticManager = HapticManager()
 
@@ -19,19 +19,14 @@ struct ContentView: View {
 
             VStack(spacing: 0) {
                 topBar
-
                 Spacer()
-
                 MascotView(isCharging: chargerMonitor.isCharging)
                     .frame(height: 280)
-
                 Text(soundPackStore.plugCountLabel)
                     .font(.system(size: 14, weight: .medium, design: .rounded))
                     .foregroundColor(.gray)
                     .padding(.top, 24)
-
                 Spacer()
-
                 PackSelectorView(store: soundPackStore)
                     .padding(.bottom, 32)
             }
@@ -46,11 +41,7 @@ struct ContentView: View {
             #endif
         }
         .onChange(of: chargerMonitor.isCharging) { _, isCharging in
-            if isCharging {
-                handlePlug()
-            } else {
-                handleUnplug()
-            }
+            isCharging ? handlePlug() : handleUnplug()
         }
     }
 
@@ -62,10 +53,10 @@ struct ContentView: View {
                     LinearGradient(colors: [.cyan, .blue], startPoint: .leading, endPoint: .trailing)
                 )
             Spacer()
-            Button(action: { speechPlayer.toggleMute() }) {
-                Image(systemName: speechPlayer.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
+            Button(action: { soundEngine.toggleMute() }) {
+                Image(systemName: soundEngine.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
                     .font(.system(size: 20))
-                    .foregroundColor(speechPlayer.isMuted ? .red : .cyan)
+                    .foregroundColor(soundEngine.isMuted ? .red : .cyan)
             }
         }
         .padding(.horizontal, 24)
@@ -74,7 +65,7 @@ struct ContentView: View {
     }
 
     private func handlePlug() {
-        speechPlayer.play(soundPackStore.selectedPack.plugConfig)
+        soundEngine.play(soundPackStore.selectedPack.plugSound)
         hapticManager.plug()
         soundPackStore.incrementPlugCount()
         withAnimation(.easeOut(duration: 0.15)) { flashOpacity = 0.5 }
@@ -84,7 +75,7 @@ struct ContentView: View {
     }
 
     private func handleUnplug() {
-        speechPlayer.play(soundPackStore.selectedPack.unplugConfig)
+        soundEngine.play(soundPackStore.selectedPack.unplugSound)
         hapticManager.unplug()
     }
 
@@ -94,11 +85,9 @@ struct ContentView: View {
             Spacer()
             HStack(spacing: 16) {
                 Button("🔌 Plug") { chargerMonitor.simulatePlug() }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.cyan)
+                    .buttonStyle(.borderedProminent).tint(.cyan)
                 Button("💀 Unplug") { chargerMonitor.simulateUnplug() }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.red)
+                    .buttonStyle(.borderedProminent).tint(.red)
             }
             .padding(.bottom, 160)
         }

@@ -40,7 +40,7 @@ struct MascotView: View {
                     .fill(
                         isCharging
                         ? LinearGradient(colors: [.white.opacity(0.9), .cyan.opacity(0.6)], startPoint: .topLeading, endPoint: .bottomTrailing)
-                        : Color(white: 0.1)
+                        : LinearGradient(colors: [Color(white: 0.1), Color(white: 0.1)], startPoint: .topLeading, endPoint: .bottomTrailing)
                     )
                     .frame(width: 98, height: 160)
 
