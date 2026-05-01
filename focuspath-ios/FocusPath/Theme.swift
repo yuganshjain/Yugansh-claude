@@ -31,10 +31,7 @@ enum Theme {
     )
 
     static let orangeGradient = LinearGradient(
-        colors: [
-            Color(red: 0.910, green: 0.361, blue: 0.016),
-            Color(red: 0.957, green: 0.549, blue: 0.024)
-        ],
+        colors: [saffronDeep, saffron],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
