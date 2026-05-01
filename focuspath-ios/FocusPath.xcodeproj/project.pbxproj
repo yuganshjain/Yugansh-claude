@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12B07D5FAAA99627FFD6D052 /* PassageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8B49417B181954D408A9A /* PassageCardView.swift */; };
 		1B7084306D0059DC1E06564E /* PassageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA94CFCBF11E3C450D6D0772 /* PassageStore.swift */; };
 		1EEC37DFB8CFC905D9B15795 /* FocusPathApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4576BB6FF0EEDC6695EAC /* FocusPathApp.swift */; };
 		2D6839F70F58E4AA14618C8A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA161162776B8708F5228FE /* SettingsView.swift */; };
@@ -17,6 +18,7 @@
 		6C0C308875FB806FD2B0D8F9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9DA7C39786BCC5FFDAE2F /* Theme.swift */; };
 		9C8AA1244D06696C5940DED2 /* QuizCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5170947F4342BD1F042D9C /* QuizCache.swift */; };
 		A71F66960E755F551FD1832D /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D149908A523F42152144D /* QuizQuestion.swift */; };
+		AAC4DB249DEB04BFB329BC0F /* FocusTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362246F2B1C0FF9ED157B48F /* FocusTimerView.swift */; };
 		AF090C9FF1884EED9725D04D /* ClaudeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA3E310B89B77D0B1782A9 /* ClaudeServiceTests.swift */; };
 		CA2A05E12B7704A976B9876D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A3A12E9EDA9DDA70BC3AD4 /* QuizView.swift */; };
 		D5E69F4D685D46DFEC523B30 /* Passages.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CD4DE5847C228CF58AE8D2 /* Passages.json */; };
@@ -37,10 +39,12 @@
 
 /* Begin PBXFileReference section */
 		012D149908A523F42152144D /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+		362246F2B1C0FF9ED157B48F /* FocusTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimerView.swift; sourceTree = "<group>"; };
 		3B1390A5C1B6958B9118CA50 /* FocusSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSession.swift; sourceTree = "<group>"; };
 		43CA3E310B89B77D0B1782A9 /* ClaudeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeServiceTests.swift; sourceTree = "<group>"; };
 		55F4CF5F266BEB336AD1EF9A /* ProgressView_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView_.swift; sourceTree = "<group>"; };
 		60F9DA7C39786BCC5FFDAE2F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		61F8B49417B181954D408A9A /* PassageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageCardView.swift; sourceTree = "<group>"; };
 		6370A997CDBB2BCFBA9599DF /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		6B713D2674C4DE6B5BF501D1 /* ClaudeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeService.swift; sourceTree = "<group>"; };
 		6C177F33D54BFD822F80E057 /* PassageStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageStoreTests.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		122A4F722FAE45A5D958C00F /* Reading */ = {
 			isa = PBXGroup;
 			children = (
+				362246F2B1C0FF9ED157B48F /* FocusTimerView.swift */,
 				E34121F11468033CF970B69A /* ReadingView.swift */,
 			);
 			path = Reading;
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				6370A997CDBB2BCFBA9599DF /* DashboardView.swift */,
+				61F8B49417B181954D408A9A /* PassageCardView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -269,7 +275,9 @@
 				453F6B1E34F977AF8F6D8F9E /* DashboardView.swift in Sources */,
 				1EEC37DFB8CFC905D9B15795 /* FocusPathApp.swift in Sources */,
 				5CDB2CD7C8A238CF57D70395 /* FocusSession.swift in Sources */,
+				AAC4DB249DEB04BFB329BC0F /* FocusTimerView.swift in Sources */,
 				E58728218492604EB37826B2 /* Passage.swift in Sources */,
+				12B07D5FAAA99627FFD6D052 /* PassageCardView.swift in Sources */,
 				1B7084306D0059DC1E06564E /* PassageStore.swift in Sources */,
 				F18AF0CF277647C0B65156AA /* ProgressView_.swift in Sources */,
 				9C8AA1244D06696C5940DED2 /* QuizCache.swift in Sources */,
