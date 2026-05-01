@@ -27,6 +27,33 @@
     "estimatedMinutes": 6
   },
   {
+    "id": "stoics-004",
+    "tradition": "stoics",
+    "source": "Marcus Aurelius",
+    "work": "Meditations, Book IV",
+    "quote": "Loss is nothing else but change, and change is nature's delight.",
+    "body": "Loss is nothing else but change, and change is nature's delight. Accept the things to which fate binds you, and love the people with whom fate brings you together, and do so with all your heart.\n\nVery little is needed to make a happy life; it is all within yourself, in your way of thinking. If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it.\n\nNever esteem anything as of advantage to you that will make you break your word or lose your self-respect. How much more grievous are the consequences of anger than the causes of it.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "stoics-005",
+    "tradition": "stoics",
+    "source": "Epictetus",
+    "work": "Discourses",
+    "quote": "No man is free who is not master of himself.",
+    "body": "No man is free who is not master of himself. First say to yourself what you would be; and then do what you have to do.\n\nMen are disturbed not by the things which happen, but by the opinions about the things. When we are troubled or grieved, let us never blame anyone else, but ourselves.\n\nIf thy brother wrongs thee, remember not so much his wrong-doing, but more than ever that he is thy brother. It is not he that reviles you or strikes you, but your opinion that these things are insulting.\n\nCharacter is revealed in every moment of choice. Every difficulty in life presents us with the opportunity to turn inward and to invoke our own submerged strengths.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "stoics-006",
+    "tradition": "stoics",
+    "source": "Seneca",
+    "work": "On the Shortness of Life",
+    "quote": "It is not that we have a short time to live, but that we waste a great deal of it.",
+    "body": "It is not that we have a short time to live, but that we waste a great deal of it. Life is long enough, and a sufficiently generous amount has been given to us for the highest achievements if it were all well invested. But when it is wasted in heedless luxury and spent on no good activity, we are forced at last by death's final constraint to realize that it has passed away before we knew it was passing.\n\nRecall it to your mind: how many different people have robbed you of life when you were not aware of what you were losing; how much was taken up in useless grief, foolish joy, greedy desire, the conversation of society; how little of yourself was left to you.\n\nPostpone nothing. Balance life's books each day.",
+    "estimatedMinutes": 7
+  },
+  {
     "id": "gita-001",
     "tradition": "gita",
     "source": "Bhagavad Gita",
@@ -42,6 +69,24 @@
     "work": "Chapter 6",
     "quote": "The mind is restless and difficult to restrain, but it is subdued by practice.",
     "body": "The mind is restless and difficult to restrain, but it is subdued by practice. For those whose minds are uncontrolled, reaching the highest state is very hard. But those whose minds are controlled, and who strive by the right means, it is possible.\n\nA lamp does not flicker in a place where no wind blows; so it is with a yogi who controls his mind, intellect and self, being absorbed in the spirit within him.\n\nLet each man raise the self by the self. Let him not suffer the self to be lowered. For the Self is the friend of the self, and also the Self is the enemy of the self.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "gita-003",
+    "tradition": "gita",
+    "source": "Bhagavad Gita",
+    "work": "Chapter 3 — Karma Yoga",
+    "quote": "Act without expectation, without wasting time on what is past.",
+    "body": "Act without expectation, without wasting time on what is past, and with equanimity in both success and failure. Yoga is equanimity.\n\nYou have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself the cause of the results of your activities, and never be attached to not doing your duty.\n\nAs a fire is covered by smoke and a mirror is obscured by dust, as the embryo rests deep within the womb, wisdom is hidden by selfish desire. Wisdom is hidden by this never-satisfying fire of the senses, the eternal enemy of the wise.\n\nThe senses are said to be superior to the body; the mind is superior to the senses; reason is superior to the mind; and the Self is superior to reason.",
+    "estimatedMinutes": 8
+  },
+  {
+    "id": "gita-004",
+    "tradition": "gita",
+    "source": "Bhagavad Gita",
+    "work": "Chapter 12 — Bhakti Yoga",
+    "quote": "He who hates no creature, who is friendly and compassionate to all — he is dear to Me.",
+    "body": "He who hates no creature, who is friendly and compassionate to all, who is free from attachment and egoism, who is equal in pleasure and pain, who is patient — he is dear to Me.\n\nHe from whom the world does not shrink, who does not shrink from the world, who is free from exultation, anger, fear, and anxiety — he is dear to Me.\n\nHe who is skillful, indifferent to gain, free from anxiety, untroubled, who gives up all undertakings — he is dear to Me.\n\nHe who neither rejoices nor hates, neither grieves nor desires, who renounces good and evil, who is full of devotion — he is dear to Me. He who is alike to foe and friend, and also alike in honor and dishonor — he is dear to Me.",
     "estimatedMinutes": 7
   },
   {
@@ -63,6 +108,24 @@
     "estimatedMinutes": 5
   },
   {
+    "id": "tao-003",
+    "tradition": "tao",
+    "source": "Lao Tzu",
+    "work": "Tao Te Ching, Chapter 16",
+    "quote": "Empty your mind of all thoughts. Let your heart be at peace.",
+    "body": "Empty your mind of all thoughts. Let your heart be at peace. Watch the turmoil of beings, but contemplate their return.\n\nEach separate being in the universe returns to the common source. Returning to the source is serenity. If you don't realize the source, you stumble in confusion and sorrow.\n\nWhen you realize where you come from, you naturally become tolerant, disinterested, amused, kindhearted as a grandmother, dignified as a king. Immersed in the wonder of the Tao, you can deal with whatever life brings you, and when death comes, you are ready.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "tao-004",
+    "tradition": "tao",
+    "source": "Lao Tzu",
+    "work": "Tao Te Ching, Chapter 8",
+    "quote": "The highest good is like water — it nourishes without effort.",
+    "body": "The highest good is like water. Water gives life to the ten thousand things and does not strive. It flows in places men reject and so is like the Tao.\n\nIn dwelling, live close to the ground. In thinking, keep to the simple. In conflict, be fair and generous. In governing, don't try to control. In work, do what you enjoy. In family life, be completely present.\n\nWhen you are content to be simply yourself and don't compare or compete, everybody will respect you.",
+    "estimatedMinutes": 5
+  },
+  {
     "id": "upanishads-001",
     "tradition": "upanishads",
     "source": "Brihadaranyaka Upanishad",
@@ -70,6 +133,24 @@
     "quote": "You are what your deep, driving desire is.",
     "body": "You are what your deep, driving desire is. As your desire is, so is your will. As your will is, so is your deed. As your deed is, so is your destiny.\n\nFrom joy springs all creation, by joy it is sustained, towards joy it proceeds, and into joy it enters.\n\nThis Self is never born nor does it ever perish; it did not come into existence, and it will not come into existence. This unborn, eternal, ever-existing, primordial being is not slain when the body is slain.",
     "estimatedMinutes": 7
+  },
+  {
+    "id": "upanishads-002",
+    "tradition": "upanishads",
+    "source": "Mundaka Upanishad",
+    "work": "Chapter 3",
+    "quote": "The Self cannot be known by one who is diverted by wealth.",
+    "body": "The Self cannot be known by one who is diverted by wealth, or by one who is careless, or by one who is not at peace with oneself. But through the light of the Self, the seer sees the Self.\n\nBrahmam is supreme; it is self-luminous, it is beyond all thought. Subtler than the subtlest is it, farther than the farthest, nearer than the nearest. It is the light in the heart.\n\nAs rivers, flowing down, become indistinguishable on reaching the sea, by giving up their names and forms, so also the illumined soul, having become freed from name and form, reaches the self-effulgent Purusha that is higher than the higher.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "upanishads-003",
+    "tradition": "upanishads",
+    "source": "Katha Upanishad",
+    "work": "Part 1",
+    "quote": "The good and the pleasant are two different things. The wise choose the good; the foolish choose the pleasant.",
+    "body": "The good and the pleasant are two different things; they bind a person to different ends. It is well with the one who chooses the good; the one who chooses the pleasant misses the goal.\n\nBoth the good and the pleasant approach a person. Going round both, the wise discriminates and chooses the good over the pleasant. The ignorant chooses the pleasant for the sake of bodily enjoyment.\n\nThe Self is not known through discourse, nor through the intellect, nor through much learning. It is known to the one whom It chooses; to such a one, the Self reveals Its own nature.",
+    "estimatedMinutes": 6
   },
   {
     "id": "bible-001",
@@ -90,12 +171,66 @@
     "estimatedMinutes": 6
   },
   {
+    "id": "bible-003",
+    "tradition": "bible",
+    "source": "Proverbs",
+    "work": "Chapters 3 & 4",
+    "quote": "Trust in the Lord with all your heart and lean not on your own understanding.",
+    "body": "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.\n\nDo not be wise in your own eyes; fear the Lord and shun evil. This will bring health to your body and nourishment to your bones.\n\nAbove all else, guard your heart, for everything you do flows from it. Keep your mouth free of perversity; keep corrupt talk far from your lips. Let your eyes look straight ahead; fix your gaze directly before you. Give careful thought to the paths for your feet and be steadfast in all your ways.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "bible-004",
+    "tradition": "bible",
+    "source": "Psalm 23",
+    "work": "Psalms",
+    "quote": "The Lord is my shepherd; I shall not want.",
+    "body": "The Lord is my shepherd; I shall not want. He makes me to lie down in green pastures; He leads me beside the still waters. He restores my soul; He leads me in the paths of righteousness for His name's sake.\n\nYea, though I walk through the valley of the shadow of death, I will fear no evil; for You are with me; Your rod and Your staff, they comfort me.\n\nYou prepare a table before me in the presence of my enemies; You anoint my head with oil; my cup runs over. Surely goodness and mercy shall follow me all the days of my life, and I will dwell in the house of the Lord forever.",
+    "estimatedMinutes": 5
+  },
+  {
+    "id": "bible-005",
+    "tradition": "bible",
+    "source": "Romans",
+    "work": "Chapter 8",
+    "quote": "We know that in all things God works for the good of those who love him.",
+    "body": "We know that in all things God works for the good of those who love him, who have been called according to his purpose.\n\nFor I am convinced that neither death nor life, neither angels nor demons, neither the present nor the future, nor any powers, neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.\n\nWho shall separate us from the love of Christ? Shall trouble or hardship or persecution or famine or nakedness or danger or sword? No, in all these things we are more than conquerors through him who loved us.",
+    "estimatedMinutes": 6
+  },
+  {
     "id": "quran-001",
     "tradition": "quran",
     "source": "Quran",
     "work": "Surah Al-Baqarah 2:286",
     "quote": "Allah does not burden a soul beyond that it can bear.",
     "body": "Allah does not burden a soul beyond that it can bear. It will have what it has earned, and it will be held accountable for what it has deserved.\n\nVerily, with hardship comes ease. Verily, with hardship comes ease. So when you have finished your duties, then stand up for worship.\n\nAnd seek help through patience and prayer, and indeed, it is difficult except for the humbly submissive.",
+    "estimatedMinutes": 5
+  },
+  {
+    "id": "quran-002",
+    "tradition": "quran",
+    "source": "Quran",
+    "work": "Surah Al-Imran 3:139",
+    "quote": "Do not lose heart, nor fall into despair — you will be superior if you are true in faith.",
+    "body": "Do not lose heart, nor fall into despair. For you will be superior if you are true in faith. If a wound has touched you, be sure a similar wound has touched the others. Such days of varying fortunes we give to men and men by turns.\n\nAnd those who are slain in God's way, He will never let their deeds be lost. He will guide them and set right their state, and bring them into the Garden which He has made known to them.\n\nO ye who believe! Persevere in patience and constancy; vie in such perseverance; strengthen each other; and fear God that ye may prosper.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "quran-003",
+    "tradition": "quran",
+    "source": "Quran",
+    "work": "Surah Az-Zumar 39:53",
+    "quote": "Do not despair of the mercy of Allah. Indeed, Allah forgives all sins.",
+    "body": "Say: O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.\n\nAnd return to your Lord and submit to Him before the punishment comes upon you; then you will not be helped. And follow the best of what was revealed to you from your Lord before the punishment comes upon you suddenly.\n\nAnd whoever does a good deed — it is for himself. And whoever does evil — it is against himself. Then to your Lord you will be returned.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "quran-004",
+    "tradition": "quran",
+    "source": "Quran",
+    "work": "Surah Al-Fatiha",
+    "quote": "Guide us to the straight path — the path of those upon whom You have bestowed favor.",
+    "body": "In the name of God, the Most Gracious, the Most Merciful. All praise is due to God alone, the Sustainer of all the worlds, the Most Gracious, the Most Merciful, Master of the Day of Judgment.\n\nYou alone do we worship; and unto You alone do we turn for aid. Guide us to the straight path — the path of those upon whom You have bestowed Your blessings, not of those who have been condemned, nor of those who go astray.\n\nThis is the opening chapter of the Quran, recited in every prayer. In seven short verses, it contains the essence of the entire message: gratitude, worship, and the yearning for guidance.",
     "estimatedMinutes": 5
   },
   {
@@ -115,5 +250,68 @@
     "quote": "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.",
     "body": "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor. Smile, breathe, and go slowly.\n\nThe present moment is the only moment available to us, and it is the door to all moments. People usually consider walking on water or in thin air a miracle. But I think the real miracle is to walk on earth.\n\nThe most precious gift we can offer anyone is our attention. When mindfulness embraces those we love, they will bloom like flowers.",
     "estimatedMinutes": 6
+  },
+  {
+    "id": "buddhist-003",
+    "tradition": "buddhist",
+    "source": "Dhammapada",
+    "work": "Chapter 5 — The Fool",
+    "quote": "Long is the night to him who is awake. Long is the road to him who is tired. Long is the cycle of existence to the foolish who do not know the true law.",
+    "body": "Long is the night to him who is awake; long is a mile to him who is tired; long is life to the foolish who do not know the true law.\n\nIf a traveler does not meet with one who is his better, or his equal, let him firmly keep to his solitary journey; there is no companionship with a fool.\n\nFrom attachment springs grief, from attachment springs fear. For one who is wholly free from attachment there is no grief, whence then fear? From craving springs grief, from craving springs fear. For one who is free from craving there is no grief; whence then fear?",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "buddhist-004",
+    "tradition": "buddhist",
+    "source": "Pema Chodron",
+    "work": "When Things Fall Apart",
+    "quote": "Nothing ever goes away until it has taught us what we need to know.",
+    "body": "Nothing ever goes away until it has taught us what we need to know. If we run from our feelings, if we run from our fears, if we run from our discomfort, we run from our life.\n\nThe things that drive us crazy, the things that upset us — those are the very things which, if we can stay with them, soften us and wake us up. We don't have to be perfect. The point is to be real.\n\nFear is a natural reaction to moving closer to the truth. The dharma path is nothing more than learning to be fully present with our lives — with the joy, the sorrow, the beauty, and the ordinary.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "buddhist-005",
+    "tradition": "buddhist",
+    "source": "Dhammapada",
+    "work": "Chapter 21 — Miscellaneous",
+    "quote": "Health is the highest gain. Contentment is the highest wealth.",
+    "body": "Health is the highest gain. Contentment is the highest wealth. A trusted friend is the best relative. Nibbana is the highest happiness.\n\nBy oneself is evil done; by oneself one suffers. By oneself evil is left undone; by oneself one is purified. Purity and impurity depend on oneself. No one can purify another.\n\nLet no one neglect one's own good for the sake of another's, however great. Clearly understanding one's own goal, let one be intent upon one's own purpose.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "stoics-007",
+    "tradition": "stoics",
+    "source": "Marcus Aurelius",
+    "work": "Meditations, Book VIII",
+    "quote": "Confine yourself to the present.",
+    "body": "Confine yourself to the present. When you arise in the morning, think of what a privilege it is to be alive, to think, to enjoy, to love.\n\nObserve constantly that all things take place by change, and accustom yourself to consider that the nature of the universe loves nothing so much as to change the things which are. For the past, it is nothing. For the future, it is nothing yet. Only the present is yours.\n\nDo not indulge in dreams of what you do not have, but count up the chief of the blessings you do have, and think how eagerly they would have been sought if you did not have them.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "gita-005",
+    "tradition": "gita",
+    "source": "Bhagavad Gita",
+    "work": "Chapter 18 — Liberation Through Renunciation",
+    "quote": "Fix your mind on Me; be devoted to Me; worship Me; bow down to Me. So shall you come to Me.",
+    "body": "Fix your mind on Me; be devoted to Me; worship Me; bow down to Me. So shall you come to Me. I promise you truly, for you are dear to Me.\n\nAbandon all varieties of dharma and simply surrender unto Me. I shall deliver you from all sinful reactions. Do not fear.\n\nThis is the most confidential of all knowledge. Reflect on it fully, and then do as you wish. But hear again My supreme word, the most secret of all. You are dearly beloved of Me; therefore I shall speak for your benefit.\n\nKnowledge is better than practice; meditation is better than knowledge; but better still is surrender of attachment to results, because there follows immediate peace.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "tao-005",
+    "tradition": "tao",
+    "source": "Lao Tzu",
+    "work": "Tao Te Ching, Chapter 33",
+    "quote": "He who knows others is wise. He who knows himself is enlightened.",
+    "body": "He who knows others is wise. He who knows himself is enlightened. He who conquers others has physical strength. He who conquers himself is strong.\n\nHe who is content is wealthy. He who perseveres has willpower. He who maintains his position endures. He who is not afraid of death will live forever.\n\nFor the Tao is great and so is heaven, and so is earth, and so is the human. These four are great, and the human is one of them. The way of humans is earthly; the way of earth is heavenly; the way of heaven is the Tao; the way of the Tao is its own nature.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "upanishads-004",
+    "tradition": "upanishads",
+    "source": "Chandogya Upanishad",
+    "work": "Chapter 6",
+    "quote": "That which is the finest essence — this whole world has that as its soul. That is Reality. That is the Atman. That art thou.",
+    "body": "As the bees make honey by collecting the juices of distant trees, and reduce the juice into one form, and as these juices have no discrimination, so that they might say 'I am the juice of this tree or that tree,' in the same manner all these creatures, when they have become merged in the True, know not that they are merged in the True.\n\nThat which is the finest essence — this whole world has that as its soul. That is Reality. That is Atman. That art thou, O Shvetaketu.\n\nAs the rivers flowing east and west merge in the sea and become one with it, forgetting that they ever were separate rivers, so do all creatures lose their separateness when they merge at last into pure Being.",
+    "estimatedMinutes": 8
   }
 ]

@@ -3,9 +3,7 @@ import SwiftUI
 struct ReadingView: View {
     let passageId: String
 
-    @State private var elapsedSeconds = 0
     @State private var scrollProgress: CGFloat = 0
-    @State private var timer: Timer?
     @State private var navigateToQuiz = false
 
     private var passage: Passage? { PassageStore.shared.passage(byId: passageId) }
@@ -21,11 +19,9 @@ struct ReadingView: View {
         }
         .navigationDestination(isPresented: $navigateToQuiz) {
             if let passage {
-                QuizView(passage: passage, focusSeconds: elapsedSeconds)
+                QuizView(passage: passage)
             }
         }
-        .onAppear { startTimer() }
-        .onDisappear { timer?.invalidate() }
     }
 
     @ViewBuilder
@@ -44,13 +40,13 @@ struct ReadingView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("\(passage.source) · \(passage.work)")
+                    Text("\(passage.source) \u{00B7} \(passage.work)")
                         .font(.system(size: 12, weight: .bold))
                         .tracking(1.5)
                         .foregroundStyle(Theme.brownMuted)
                         .padding(.top, 8)
 
-                    Text("Read carefully — you'll answer 3 questions after")
+                    Text("Read carefully \u{2014} you\u{2019}ll answer 3 questions after")
                         .font(.system(size: 12))
                         .foregroundStyle(Theme.brownMuted)
 
@@ -63,14 +59,12 @@ struct ReadingView: View {
                         }
                     }
 
-                    FocusTimerView(seconds: elapsedSeconds)
-
                     Button(action: { navigateToQuiz = true }) {
                         HStack {
                             Spacer()
                             Text(canFinish
-                                 ? "I've finished reading →"
-                                 : "Scroll to read more…")
+                                 ? "I\u{2019}ve finished reading \u{2192}"
+                                 : "Scroll to read more\u{2026}")
                                 .font(.system(size: 16, weight: .bold))
                                 .foregroundStyle(.white)
                             Spacer()
@@ -95,12 +89,6 @@ struct ReadingView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .background(Theme.cream.ignoresSafeArea())
-    }
-
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            elapsedSeconds += 1
-        }
     }
 
     private func updateProgress(_ geo: GeometryProxy) {
