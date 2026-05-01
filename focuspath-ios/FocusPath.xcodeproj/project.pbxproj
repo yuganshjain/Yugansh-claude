@@ -10,6 +10,7 @@
 		12B07D5FAAA99627FFD6D052 /* PassageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F8B49417B181954D408A9A /* PassageCardView.swift */; };
 		1B7084306D0059DC1E06564E /* PassageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA94CFCBF11E3C450D6D0772 /* PassageStore.swift */; };
 		1EEC37DFB8CFC905D9B15795 /* FocusPathApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4576BB6FF0EEDC6695EAC /* FocusPathApp.swift */; };
+		2D45CCF10DD121E540DC1C79 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = ABB55E7EDCD7417C4026784D /* PrivacyInfo.xcprivacy */; };
 		2D6839F70F58E4AA14618C8A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA161162776B8708F5228FE /* SettingsView.swift */; };
 		453F6B1E34F977AF8F6D8F9E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370A997CDBB2BCFBA9599DF /* DashboardView.swift */; };
 		5C17446EDE209EBD80DE3649 /* ReadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34121F11468033CF970B69A /* ReadingView.swift */; };
@@ -54,6 +55,7 @@
 		87CD4DE5847C228CF58AE8D2 /* Passages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Passages.json; sourceTree = "<group>"; };
 		8F8DF08430D3BE27C039D830 /* FocusPathTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FocusPathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A3A12E9EDA9DDA70BC3AD4 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		ABB55E7EDCD7417C4026784D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AE514C355CCC54CC0119E1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B6A83DD16C942CB0A622BA6E /* QuizQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestionView.swift; sourceTree = "<group>"; };
 		C1F949C598C7CA65CFDF7146 /* FocusPath.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FocusPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 			children = (
 				F3E4576BB6FF0EEDC6695EAC /* FocusPathApp.swift */,
 				AE514C355CCC54CC0119E1B7 /* Info.plist */,
+				ABB55E7EDCD7417C4026784D /* PrivacyInfo.xcprivacy */,
 				60F9DA7C39786BCC5FFDAE2F /* Theme.swift */,
 				CFFAE3A167C822E2A6114A37 /* Data */,
 				29F40BB6AC9E48F7801924D9 /* Models */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5E69F4D685D46DFEC523B30 /* Passages.json in Resources */,
+				2D45CCF10DD121E540DC1C79 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
