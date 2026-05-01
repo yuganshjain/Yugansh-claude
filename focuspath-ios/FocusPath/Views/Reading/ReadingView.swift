@@ -9,7 +9,7 @@ struct ReadingView: View {
     @State private var navigateToQuiz = false
 
     private var passage: Passage? { PassageStore.shared.passage(byId: passageId) }
-    private var canFinish: Bool { elapsedSeconds >= 60 && scrollProgress >= 0.6 }
+    private var canFinish: Bool { scrollProgress >= 0.6 }
 
     var body: some View {
         Group {
@@ -70,7 +70,7 @@ struct ReadingView: View {
                             Spacer()
                             Text(canFinish
                                  ? "I've finished reading →"
-                                 : "Keep reading… (\(max(0, 60 - elapsedSeconds))s)")
+                                 : "Scroll to read more…")
                                 .font(.system(size: 16, weight: .bold))
                                 .foregroundStyle(.white)
                             Spacer()
