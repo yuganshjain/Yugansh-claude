@@ -29,7 +29,7 @@ enum XPSystem {
         return Double(earned) / Double(needed)
     }
 
-    static func xpFor(passage: Passage, quizScore: Int) -> Int {
-        50 + (passage.estimatedMinutes * 5) + (quizScore * 10)
+    static func xpFor(passage: Passage, quizScore: Int = 0) -> Int {
+        50 + (passage.estimatedMinutes * 5)
     }
 }

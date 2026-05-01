@@ -1,10 +1,13 @@
 import SwiftUI
+import SwiftData
 
 struct ReadingView: View {
     let passageId: String
 
+    @Environment(\.modelContext) private var modelContext
     @State private var scrollProgress: CGFloat = 0
-    @State private var navigateToQuiz = false
+    @State private var done = false
+    @State private var xpEarned = 0
 
     private var passage: Passage? { PassageStore.shared.passage(byId: passageId) }
     private var canFinish: Bool { scrollProgress >= 0.6 }
@@ -12,16 +15,18 @@ struct ReadingView: View {
     var body: some View {
         Group {
             if let passage {
-                content(passage)
+                if done {
+                    completionView(passage)
+                } else {
+                    content(passage)
+                }
             } else {
                 Text("Passage not found").foregroundStyle(Theme.brownMuted)
             }
         }
-        .navigationDestination(isPresented: $navigateToQuiz) {
-            if let passage {
-                QuizView(passage: passage)
-            }
-        }
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Theme.cream.ignoresSafeArea())
     }
 
     @ViewBuilder
@@ -46,10 +51,6 @@ struct ReadingView: View {
                         .foregroundStyle(Theme.brownMuted)
                         .padding(.top, 8)
 
-                    Text("Read carefully \u{2014} you\u{2019}ll answer 3 questions after")
-                        .font(.system(size: 12))
-                        .foregroundStyle(Theme.brownMuted)
-
                     VStack(alignment: .leading, spacing: 16) {
                         ForEach(passage.body.components(separatedBy: "\n\n"), id: \.self) { para in
                             Text(para)
@@ -59,7 +60,7 @@ struct ReadingView: View {
                         }
                     }
 
-                    Button(action: { navigateToQuiz = true }) {
+                    Button(action: { finishReading(passage) }) {
                         HStack {
                             Spacer()
                             Text(canFinish
@@ -86,16 +87,71 @@ struct ReadingView: View {
             }
             .background(Theme.cream)
         }
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
+    }
+
+    @ViewBuilder
+    private func completionView(_ passage: Passage) -> some View {
+        let level = XPSystem.currentLevel(for: xpEarned)
+        ScrollView {
+            VStack(spacing: 28) {
+                Spacer().frame(height: 20)
+
+                Text(level.emoji)
+                    .font(.system(size: 72))
+
+                VStack(spacing: 8) {
+                    Text("Session Complete")
+                        .font(.system(size: 28, weight: .black))
+                        .foregroundStyle(Theme.brown)
+                    Text("\(passage.source) \u{00B7} \(passage.work)")
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.brownMuted)
+                }
+
+                VStack(spacing: 6) {
+                    Text("+\(xpEarned) XP")
+                        .font(.system(size: 42, weight: .black))
+                        .foregroundStyle(Theme.saffron)
+                    Text("Come back tomorrow for a new passage")
+                        .font(.system(size: 13))
+                        .foregroundStyle(Theme.brownMuted)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity)
+                .background(Theme.creamDark)
+                .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.border, lineWidth: 1))
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+
+                Text("\u{201C}\(passage.quote)\u{201D}")
+                    .font(.system(size: 16, design: .serif))
+                    .foregroundStyle(Theme.brown)
+                    .lineSpacing(5)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 8)
+            }
+            .padding(24)
+        }
         .background(Theme.cream.ignoresSafeArea())
+    }
+
+    private func finishReading(_ passage: Passage) {
+        let earned = XPSystem.xpFor(passage: passage, quizScore: 0)
+        let session = FocusSession(
+            passageId: passage.id,
+            quizScore: 0,
+            xpEarned: earned,
+            completed: true
+        )
+        modelContext.insert(session)
+        xpEarned = earned
+        done = true
     }
 
     private func updateProgress(_ geo: GeometryProxy) {
         let frame = geo.frame(in: .global)
         let screenHeight = UIScreen.main.bounds.height
         let contentHeight = frame.height
-        // If content fits on screen, no scrolling needed — unlock immediately
         guard contentHeight > screenHeight else {
             scrollProgress = 1.0
             return
