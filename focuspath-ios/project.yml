@@ -23,6 +23,7 @@ targets:
         CURRENT_PROJECT_VERSION: "1"
         INFOPLIST_FILE: FocusPath/Info.plist
         SWIFT_STRICT_CONCURRENCY: complete
+        ANTHROPIC_API_KEY: ""
     info:
       path: FocusPath/Info.plist
       properties:
@@ -33,6 +34,7 @@ targets:
           - arm64
         CFBundleDisplayName: FocusPath
         NSUserTrackingUsageDescription: ""
+        ANTHROPIC_API_KEY: $(ANTHROPIC_API_KEY)
     scheme:
       testTargets:
         - FocusPathTests
