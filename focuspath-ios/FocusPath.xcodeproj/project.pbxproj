@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B7084306D0059DC1E06564E /* PassageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA94CFCBF11E3C450D6D0772 /* PassageStore.swift */; };
+		1EEC37DFB8CFC905D9B15795 /* FocusPathApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4576BB6FF0EEDC6695EAC /* FocusPathApp.swift */; };
 		5CDB2CD7C8A238CF57D70395 /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1390A5C1B6958B9118CA50 /* FocusSession.swift */; };
 		6C0C308875FB806FD2B0D8F9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F9DA7C39786BCC5FFDAE2F /* Theme.swift */; };
 		8B07CBBBA558F3A909391A02 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832F561B342F645832454DC /* Placeholder.swift */; };
-		8B3080BC222E7262A362581C /* PlaceholderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DA3908904D40B2A12B684 /* PlaceholderTests.swift */; };
 		9C8AA1244D06696C5940DED2 /* QuizCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5170947F4342BD1F042D9C /* QuizCache.swift */; };
 		A71F66960E755F551FD1832D /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D149908A523F42152144D /* QuizQuestion.swift */; };
+		D5E69F4D685D46DFEC523B30 /* Passages.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CD4DE5847C228CF58AE8D2 /* Passages.json */; };
 		E58728218492604EB37826B2 /* Passage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B7D4C2A9CE8CB9BDD0744 /* Passage.swift */; };
+		F7C33DFA0EE43BD48C51A629 /* PassageStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C177F33D54BFD822F80E057 /* PassageStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +34,15 @@
 		3832F561B342F645832454DC /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		3B1390A5C1B6958B9118CA50 /* FocusSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSession.swift; sourceTree = "<group>"; };
 		60F9DA7C39786BCC5FFDAE2F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6C177F33D54BFD822F80E057 /* PassageStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageStoreTests.swift; sourceTree = "<group>"; };
 		7B1B7D4C2A9CE8CB9BDD0744 /* Passage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passage.swift; sourceTree = "<group>"; };
-		899DA3908904D40B2A12B684 /* PlaceholderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTests.swift; sourceTree = "<group>"; };
+		87CD4DE5847C228CF58AE8D2 /* Passages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Passages.json; sourceTree = "<group>"; };
 		8F8DF08430D3BE27C039D830 /* FocusPathTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FocusPathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE514C355CCC54CC0119E1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C1F949C598C7CA65CFDF7146 /* FocusPath.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FocusPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA94CFCBF11E3C450D6D0772 /* PassageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageStore.swift; sourceTree = "<group>"; };
 		DD5170947F4342BD1F042D9C /* QuizCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCache.swift; sourceTree = "<group>"; };
+		F3E4576BB6FF0EEDC6695EAC /* FocusPathApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusPathApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -63,12 +69,23 @@
 		440D76EC9ECC166CB653ABBA /* FocusPath */ = {
 			isa = PBXGroup;
 			children = (
+				F3E4576BB6FF0EEDC6695EAC /* FocusPathApp.swift */,
 				AE514C355CCC54CC0119E1B7 /* Info.plist */,
 				3832F561B342F645832454DC /* Placeholder.swift */,
 				60F9DA7C39786BCC5FFDAE2F /* Theme.swift */,
+				CFFAE3A167C822E2A6114A37 /* Data */,
 				29F40BB6AC9E48F7801924D9 /* Models */,
 			);
 			path = FocusPath;
+			sourceTree = "<group>";
+		};
+		CFFAE3A167C822E2A6114A37 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				87CD4DE5847C228CF58AE8D2 /* Passages.json */,
+				CA94CFCBF11E3C450D6D0772 /* PassageStore.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		D1D7844A39F44CAC4BCF8F63 /* Products */ = {
@@ -83,12 +100,12 @@
 		DB2D0C8D024E7DC098C95F9E /* FocusPathTests */ = {
 			isa = PBXGroup;
 			children = (
-				899DA3908904D40B2A12B684 /* PlaceholderTests.swift */,
+				6C177F33D54BFD822F80E057 /* PassageStoreTests.swift */,
 			);
 			path = FocusPathTests;
 			sourceTree = "<group>";
 		};
-		"TEMP_092240E3-9435-4160-9CB2-34535AA359AD" /* Views */ = {
+		"TEMP_820BA7BA-2713-44B4-8161-B8A5C17AA56C" /* Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -121,6 +138,7 @@
 			buildConfigurationList = ED3BD459DC694C84C50117A7 /* Build configuration list for PBXNativeTarget "FocusPath" */;
 			buildPhases = (
 				4BCC11398BCCE0990ABF029C /* Sources */,
+				D64CBDD3E5C969D4474B5423 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -164,13 +182,26 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		D64CBDD3E5C969D4474B5423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5E69F4D685D46DFEC523B30 /* Passages.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4BCC11398BCCE0990ABF029C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EEC37DFB8CFC905D9B15795 /* FocusPathApp.swift in Sources */,
 				5CDB2CD7C8A238CF57D70395 /* FocusSession.swift in Sources */,
 				E58728218492604EB37826B2 /* Passage.swift in Sources */,
+				1B7084306D0059DC1E06564E /* PassageStore.swift in Sources */,
 				8B07CBBBA558F3A909391A02 /* Placeholder.swift in Sources */,
 				9C8AA1244D06696C5940DED2 /* QuizCache.swift in Sources */,
 				A71F66960E755F551FD1832D /* QuizQuestion.swift in Sources */,
@@ -182,7 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B3080BC222E7262A362581C /* PlaceholderTests.swift in Sources */,
+				F7C33DFA0EE43BD48C51A629 /* PassageStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +251,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,6 +331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

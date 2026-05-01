@@ -13,6 +13,8 @@ targets:
     platform: iOS
     sources:
       - FocusPath
+    resources:
+      - FocusPath/Data/Passages.json
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.yuganshjain.focuspath
@@ -39,8 +41,11 @@ targets:
     platform: iOS
     sources:
       - FocusPathTests
+    resources:
+      - FocusPath/Data/Passages.json
     dependencies:
       - target: FocusPath
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.yuganshjain.focuspathTests
+        GENERATE_INFOPLIST_FILE: YES

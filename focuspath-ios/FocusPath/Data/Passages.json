@@ -1,0 +1,119 @@
+[
+  {
+    "id": "stoics-001",
+    "tradition": "stoics",
+    "source": "Marcus Aurelius",
+    "work": "Meditations",
+    "quote": "You have power over your mind, not outside events.",
+    "body": "You have power over your mind, not outside events. Realize this, and you will find strength.\n\nThe impediment to action advances action. What stands in the way becomes the way.\n\nWaste no more time arguing about what a good man should be. Be one.\n\nNever let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present.",
+    "estimatedMinutes": 5
+  },
+  {
+    "id": "stoics-002",
+    "tradition": "stoics",
+    "source": "Epictetus",
+    "work": "Enchiridion",
+    "quote": "Make the best use of what is in your power.",
+    "body": "Make the best use of what is in your power, and take the rest as it happens. Some things are in our control and others not. Things in our control are opinion, pursuit, desire, aversion, and, in a word, whatever are our own actions.\n\nThings not in our control are body, property, reputation, command, and, in one word, whatever are not our own actions. The things in our control are by nature free, unrestrained, unhindered.\n\nSeek not that the things which happen should happen as you wish; but wish the things which happen to be as they are, and you will have a tranquil flow of life.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "stoics-003",
+    "tradition": "stoics",
+    "source": "Seneca",
+    "work": "Letters from a Stoic",
+    "quote": "We suffer more in imagination than in reality.",
+    "body": "We suffer more in imagination than in reality. Begin at once to live, and count each separate day as a separate life.\n\nIt is not that I am brave, but that I know what is not worth fearing. While we are postponing, life speeds by.\n\nConcentrate all your thoughts upon the work at hand. The sun's rays do not burn until brought to a focus.\n\nLet us prepare our minds as if we had come to the very end of life. Let us postpone nothing. Let us balance life's books each day.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "gita-001",
+    "tradition": "gita",
+    "source": "Bhagavad Gita",
+    "work": "Chapter 2",
+    "quote": "Let right deeds be thy motive, not the fruit which comes from them.",
+    "body": "Let right deeds be thy motive, not the fruit which comes from them. And live in the action, labour! Make thine acts thy piety, casting all self aside, contemning gain and merit; so shall thine acts bring no bondage.\n\nNever the spirit was born; the spirit shall cease to be never. Never was time it was not; End and Beginning are dreams.\n\nIt is better to do one's own duty, however imperfectly, than to assume the duties of another person, however successfully.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "gita-002",
+    "tradition": "gita",
+    "source": "Bhagavad Gita",
+    "work": "Chapter 6",
+    "quote": "The mind is restless and difficult to restrain, but it is subdued by practice.",
+    "body": "The mind is restless and difficult to restrain, but it is subdued by practice. For those whose minds are uncontrolled, reaching the highest state is very hard. But those whose minds are controlled, and who strive by the right means, it is possible.\n\nA lamp does not flicker in a place where no wind blows; so it is with a yogi who controls his mind, intellect and self, being absorbed in the spirit within him.\n\nLet each man raise the self by the self. Let him not suffer the self to be lowered. For the Self is the friend of the self, and also the Self is the enemy of the self.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "tao-001",
+    "tradition": "tao",
+    "source": "Lao Tzu",
+    "work": "Tao Te Ching",
+    "quote": "To the mind that is still, the whole universe surrenders.",
+    "body": "To the mind that is still, the whole universe surrenders.\n\nThe Tao that can be told is not the eternal Tao. The name that can be named is not the eternal name. The nameless is the beginning of heaven and earth.\n\nKnowing others is wisdom; knowing yourself is enlightenment. Mastering others requires force; mastering yourself requires strength.\n\nDo you have the patience to wait until your mud settles and the water is clear? Can you remain unmoving until the right action arises by itself?",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "tao-002",
+    "tradition": "tao",
+    "source": "Chuang Tzu",
+    "work": "Inner Chapters",
+    "quote": "Flow with whatever may happen and let your mind be free.",
+    "body": "Flow with whatever may happen and let your mind be free. Stay centered by accepting whatever you are doing. This is the ultimate.\n\nHappiness is the absence of the striving for happiness. To have no striving is to have no mind.\n\nOnly the person who has faith in himself is able to be faithful to others. If water derives lucidity from stillness, how much more the faculties of the mind.",
+    "estimatedMinutes": 5
+  },
+  {
+    "id": "upanishads-001",
+    "tradition": "upanishads",
+    "source": "Brihadaranyaka Upanishad",
+    "work": "Book 1",
+    "quote": "You are what your deep, driving desire is.",
+    "body": "You are what your deep, driving desire is. As your desire is, so is your will. As your will is, so is your deed. As your deed is, so is your destiny.\n\nFrom joy springs all creation, by joy it is sustained, towards joy it proceeds, and into joy it enters.\n\nThis Self is never born nor does it ever perish; it did not come into existence, and it will not come into existence. This unborn, eternal, ever-existing, primordial being is not slain when the body is slain.",
+    "estimatedMinutes": 7
+  },
+  {
+    "id": "bible-001",
+    "tradition": "bible",
+    "source": "Psalms",
+    "work": "Psalm 46",
+    "quote": "Be still and know that I am God.",
+    "body": "God is our refuge and strength, a very present help in trouble. Therefore we will not fear, even though the earth be removed, and though the mountains be carried into the midst of the sea.\n\nThere is a river whose streams shall make glad the city of God, the holy place of the tabernacle of the Most High.\n\nBe still, and know that I am God; I will be exalted among the nations, I will be exalted in the earth.",
+    "estimatedMinutes": 5
+  },
+  {
+    "id": "bible-002",
+    "tradition": "bible",
+    "source": "Sermon on the Mount",
+    "work": "Matthew 5",
+    "quote": "Blessed are the pure in heart, for they shall see God.",
+    "body": "Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they shall be comforted. Blessed are the meek, for they shall inherit the earth.\n\nBlessed are the merciful, for they shall obtain mercy. Blessed are the pure in heart, for they shall see God. Blessed are the peacemakers, for they shall be called sons of God.\n\nYou are the light of the world. A city that is set on a hill cannot be hidden. Let your light so shine before men, that they may see your good works.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "quran-001",
+    "tradition": "quran",
+    "source": "Quran",
+    "work": "Surah Al-Baqarah 2:286",
+    "quote": "Allah does not burden a soul beyond that it can bear.",
+    "body": "Allah does not burden a soul beyond that it can bear. It will have what it has earned, and it will be held accountable for what it has deserved.\n\nVerily, with hardship comes ease. Verily, with hardship comes ease. So when you have finished your duties, then stand up for worship.\n\nAnd seek help through patience and prayer, and indeed, it is difficult except for the humbly submissive.",
+    "estimatedMinutes": 5
+  },
+  {
+    "id": "buddhist-001",
+    "tradition": "buddhist",
+    "source": "Dhammapada",
+    "work": "Chapter 1",
+    "quote": "The mind is everything. What you think, you become.",
+    "body": "The mind is everything. What you think, you become. Mind is the forerunner of all actions. All deeds are led by mind, created by mind.\n\nHatred is never appeased by hatred in this world. By non-hatred alone is hatred appeased. This is a law eternal.\n\nBetter than a thousand hollow words, is one word that brings peace. Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment.",
+    "estimatedMinutes": 6
+  },
+  {
+    "id": "buddhist-002",
+    "tradition": "buddhist",
+    "source": "Thich Nhat Hanh",
+    "work": "The Miracle of Mindfulness",
+    "quote": "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.",
+    "body": "Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor. Smile, breathe, and go slowly.\n\nThe present moment is the only moment available to us, and it is the door to all moments. People usually consider walking on water or in thin air a miracle. But I think the real miracle is to walk on earth.\n\nThe most precious gift we can offer anyone is our attention. When mindfulness embraces those we love, they will bloom like flowers.",
+    "estimatedMinutes": 6
+  }
+]
