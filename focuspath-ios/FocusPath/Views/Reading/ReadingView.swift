@@ -95,8 +95,13 @@ struct ReadingView: View {
         let frame = geo.frame(in: .global)
         let screenHeight = UIScreen.main.bounds.height
         let contentHeight = frame.height
+        // If content fits on screen, no scrolling needed — unlock immediately
+        guard contentHeight > screenHeight else {
+            scrollProgress = 1.0
+            return
+        }
         let scrolled = max(0, -frame.minY)
-        let maxScroll = max(1, contentHeight - screenHeight)
+        let maxScroll = contentHeight - screenHeight
         scrollProgress = min(1, scrolled / maxScroll)
     }
 }

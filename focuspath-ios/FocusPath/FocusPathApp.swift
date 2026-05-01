@@ -17,8 +17,8 @@ struct MainTabView: View {
             DashboardView()
                 .tabItem { Label("Home", systemImage: "house.fill") }
 
-            ReadingView(passageId: todayPassageId())
-                .tabItem { Label("Today", systemImage: "book.fill") }
+            LibraryView()
+                .tabItem { Label("Library", systemImage: "books.vertical.fill") }
 
             ProgressView_()
                 .tabItem { Label("Progress", systemImage: "chart.bar.fill") }
@@ -29,12 +29,4 @@ struct MainTabView: View {
         .tint(Theme.saffron)
     }
 
-    private func todayPassageId() -> String {
-        let f = DateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-        return PassageStore.shared.todayPassage(
-            dateString: f.string(from: Date()),
-            traditions: nil
-        ).id
-    }
 }

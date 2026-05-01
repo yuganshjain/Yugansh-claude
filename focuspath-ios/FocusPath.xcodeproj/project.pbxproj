@@ -20,6 +20,7 @@
 		9C8AA1244D06696C5940DED2 /* QuizCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5170947F4342BD1F042D9C /* QuizCache.swift */; };
 		A30DADB7E83925CBB3399202 /* XPSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C4E2CD5013D87AC6D320F /* XPSystem.swift */; };
 		A71F66960E755F551FD1832D /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D149908A523F42152144D /* QuizQuestion.swift */; };
+		A965F43A5396795ACE311CC2 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1F81477F86205375E16F13 /* LibraryView.swift */; };
 		AAC4DB249DEB04BFB329BC0F /* FocusTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362246F2B1C0FF9ED157B48F /* FocusTimerView.swift */; };
 		AF090C9FF1884EED9725D04D /* ClaudeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA3E310B89B77D0B1782A9 /* ClaudeServiceTests.swift */; };
 		C6413FE08E8C5848394199E6 /* WeeklyBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1C62EDE809116D3C9D776 /* WeeklyBarChart.swift */; };
@@ -60,6 +61,7 @@
 		ABB55E7EDCD7417C4026784D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AE514C355CCC54CC0119E1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B6A83DD16C942CB0A622BA6E /* QuizQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestionView.swift; sourceTree = "<group>"; };
+		BF1F81477F86205375E16F13 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		C1F949C598C7CA65CFDF7146 /* FocusPath.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FocusPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA94CFCBF11E3C450D6D0772 /* PassageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageStore.swift; sourceTree = "<group>"; };
 		CCD1C62EDE809116D3C9D776 /* WeeklyBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBarChart.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		7F7E06D2C255C9EC82A6DD22 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				BF1F81477F86205375E16F13 /* LibraryView.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		CFFAE3A167C822E2A6114A37 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				7B12D6EB62760ADBCB2C123A /* Dashboard */,
+				7F7E06D2C255C9EC82A6DD22 /* Library */,
 				DC22AB643767AA8EC72FBB53 /* Progress */,
 				6632D27EEE0400DB73ACBD2F /* Quiz */,
 				122A4F722FAE45A5D958C00F /* Reading */,
@@ -289,6 +300,7 @@
 				1EEC37DFB8CFC905D9B15795 /* FocusPathApp.swift in Sources */,
 				5CDB2CD7C8A238CF57D70395 /* FocusSession.swift in Sources */,
 				AAC4DB249DEB04BFB329BC0F /* FocusTimerView.swift in Sources */,
+				A965F43A5396795ACE311CC2 /* LibraryView.swift in Sources */,
 				E58728218492604EB37826B2 /* Passage.swift in Sources */,
 				12B07D5FAAA99627FFD6D052 /* PassageCardView.swift in Sources */,
 				1B7084306D0059DC1E06564E /* PassageStore.swift in Sources */,
