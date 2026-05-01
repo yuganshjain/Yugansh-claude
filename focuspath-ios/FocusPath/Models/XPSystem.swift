@@ -29,6 +29,11 @@ enum XPSystem {
         return Double(earned) / Double(needed)
     }
 
+    static func levelNumber(for totalXP: Int) -> Int {
+        let level = currentLevel(for: totalXP)
+        return (levels.firstIndex(where: { $0.threshold == level.threshold }) ?? 0) + 1
+    }
+
     static func xpFor(passage: Passage, quizScore: Int = 0) -> Int {
         50 + (passage.estimatedMinutes * 5)
     }
