@@ -15,7 +15,7 @@ struct SoulRingView: View {
                     .stroke(Color.white.opacity(0.06), lineWidth: 8)
                     .frame(width: 80, height: 80)
                 Circle()
-                    .trim(from: 0, to: CGFloat(progress))
+                    .trim(from: 0, to: min(max(CGFloat(progress), 0), 1))
                     .stroke(
                         Theme.saffron,
                         style: StrokeStyle(lineWidth: 8, lineCap: .round)
@@ -26,7 +26,7 @@ struct SoulRingView: View {
                 VStack(spacing: 1) {
                     Text(levelEmoji)
                         .font(.system(size: 20))
-                    Text("\(Int(progress * 100))%")
+                    Text("\(Int((progress * 100).rounded()))%")
                         .font(.system(size: 13, weight: .black))
                         .foregroundStyle(.white)
                 }
