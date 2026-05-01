@@ -1,0 +1,5 @@
+{"type":"server-started","port":60066,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:60066","screen_dir":"/Users/yuganshjain/Yugansh-claude/.claude/worktrees/objective-jepsen-22c48a/.superpowers/brainstorm/17223-1777609721/content","state_dir":"/Users/yuganshjain/Yugansh-claude/.claude/worktrees/objective-jepsen-22c48a/.superpowers/brainstorm/17223-1777609721/state"}
+{"type":"screen-added","file":"/Users/yuganshjain/Yugansh-claude/.claude/worktrees/objective-jepsen-22c48a/.superpowers/brainstorm/17223-1777609721/content/app-concept.html"}
+{"type":"screen-added","file":"/Users/yuganshjain/Yugansh-claude/.claude/worktrees/objective-jepsen-22c48a/.superpowers/brainstorm/17223-1777609721/content/app-concept-v2.html"}
+{"type":"screen-added","file":"/Users/yuganshjain/Yugansh-claude/.claude/worktrees/objective-jepsen-22c48a/.superpowers/brainstorm/17223-1777609721/content/full-design.html"}
+{"type":"server-stopped","reason":"idle timeout"}

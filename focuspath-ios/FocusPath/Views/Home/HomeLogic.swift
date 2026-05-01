@@ -4,8 +4,21 @@ struct HomeLogic {
     static func streak(sessionDates: [Date], referenceDate: Date = Date()) -> Int {
         let calendar = Calendar.current
         let days = Set(sessionDates.map { calendar.startOfDay(for: $0) })
+        let today = calendar.startOfDay(for: referenceDate)
+        guard let yesterday = calendar.date(byAdding: .day, value: -1, to: today) else { return 0 }
+
+        // Streak is alive if today OR yesterday is done
+        let startDay: Date
+        if days.contains(today) {
+            startDay = today
+        } else if days.contains(yesterday) {
+            startDay = yesterday
+        } else {
+            return 0
+        }
+
         var count = 0
-        var day = calendar.startOfDay(for: referenceDate)
+        var day = startDay
         while days.contains(day) {
             count += 1
             guard let prev = calendar.date(byAdding: .day, value: -1, to: day) else { break }

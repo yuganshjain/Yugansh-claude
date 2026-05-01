@@ -63,8 +63,12 @@ Two sections: Today's Reading (passage card) + Meditate (session grid) + Library
 ### Meditation
 
 - **Session grid (2×2):** Breath (5 min) · Body Scan (10 min) · Stillness (15 min) · Silent Timer (custom)
-- **Guided sessions:** Text-based guidance displayed as a card sequence. No audio required for v1. Each card shows a single instruction; user taps to advance (or swipes), with a progress bar across the top showing how far through the session they are.
-- **Silent Timer:** User sets duration via picker. Simple countdown with a gentle end chime. Writes `MeditationSession` to SwiftData.
+- **Guided sessions:** Text-based card sequence with voice breathing cues via `AVSpeechSynthesizer`. Each session is a sequence of timed phases (e.g., Inhale 4s → Hold 4s → Exhale 6s). The synth speaks "Inhale..." / "Hold..." / "Exhale..." at the start of each phase in a slow, calm rate (`utteranceRate ≈ 0.35`). A visual expanding/contracting circle animates in sync with the phase. A progress bar shows how far through the session the user is. User can tap to skip to next phase or end early.
+- **Breathing patterns per session:**
+  - Breath (5 min): 4-4-6 box-ish (Inhale 4 · Hold 2 · Exhale 6) — calming
+  - Body Scan (10 min): 4-0-6 natural breath (Inhale 4 · Exhale 6) — relaxed awareness
+  - Stillness (15 min): 4-4-4-4 box breathing (Inhale 4 · Hold 4 · Exhale 4 · Hold 4) — focused
+- **Silent Timer:** User sets duration via picker. Simple countdown with a gentle end chime (system sound or short bundled MP3). No voice. Writes `MeditationSession` to SwiftData.
 - **XP:** Guided = 30 XP fixed. Silent timer = 2 XP per minute (e.g., 10 min = 20 XP).
 
 ---

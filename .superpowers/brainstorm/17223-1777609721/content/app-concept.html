@@ -1,0 +1,79 @@
+<h2>FocusPath — ADHD Attention Trainer</h2>
+<p class="subtitle">Spiritual texts as a tool to build longer attention spans, with measurable progress</p>
+
+<div class="section">
+  <p class="label">Core Loop</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+    <div style="flex:1;min-width:160px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:8px;">📖</div>
+      <h3 style="margin:0 0 4px">Read</h3>
+      <p style="margin:0;font-size:13px;opacity:.7">Daily spiritual passage — Gita, Stoics, Tao Te Ching, etc.</p>
+    </div>
+    <div style="flex:1;min-width:160px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:8px;">⏱️</div>
+      <h3 style="margin:0 0 4px">Focus Timer</h3>
+      <p style="margin:0;font-size:13px;opacity:.7">App tracks uninterrupted reading time — no skipping</p>
+    </div>
+    <div style="flex:1;min-width:160px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:8px;">🧠</div>
+      <h3 style="margin:0 0 4px">Reflect</h3>
+      <p style="margin:0;font-size:13px;opacity:.7">Quick comprehension check — forces real engagement</p>
+    </div>
+    <div style="flex:1;min-width:160px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:8px;">📈</div>
+      <h3 style="margin:0 0 4px">Track Progress</h3>
+      <p style="margin:0;font-size:13px;opacity:.7">Attention span graph grows over days & weeks</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="label">Which design direction feels right?</p>
+  <div class="cards" style="margin-top:12px;">
+    <div class="card" data-choice="minimal" onclick="toggleSelect(this)">
+      <div class="card-image" style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:20px;min-height:120px;display:flex;flex-direction:column;justify-content:center;color:white;border-radius:8px 8px 0 0;">
+        <div style="font-size:11px;letter-spacing:2px;opacity:.5;margin-bottom:8px">DAY 12 · STREAK 🔥</div>
+        <div style="font-size:18px;font-weight:600;margin-bottom:4px">"The mind is everything."</div>
+        <div style="font-size:12px;opacity:.6">— Buddha · 3 min read</div>
+        <div style="margin-top:12px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;">
+          <div style="width:40%;height:100%;background:#6c63ff;border-radius:2px;"></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Zen Dark</h3>
+        <p>Minimal, distraction-free. Dark mode, single passage per day. Calm and meditative.</p>
+      </div>
+    </div>
+
+    <div class="card" data-choice="gamified" onclick="toggleSelect(this)">
+      <div class="card-image" style="background:linear-gradient(135deg,#fff9f0,#fff0dc);padding:20px;min-height:120px;display:flex;flex-direction:column;justify-content:center;border-radius:8px 8px 0 0;">
+        <div style="display:flex;gap:8px;margin-bottom:10px;">
+          <span style="background:#ff6b35;color:white;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">🔥 12 DAY STREAK</span>
+          <span style="background:#4caf50;color:white;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">+50 XP</span>
+        </div>
+        <div style="font-size:14px;font-weight:600;margin-bottom:6px">Today's Focus Challenge</div>
+        <div style="display:flex;gap:6px;">
+          <div style="flex:1;background:white;border-radius:6px;padding:8px;text-align:center;font-size:11px;box-shadow:0 1px 4px rgba(0,0,0,.1)">⏱️<br><b>8 min</b><br><span style="opacity:.6">target</span></div>
+          <div style="flex:1;background:white;border-radius:6px;padding:8px;text-align:center;font-size:11px;box-shadow:0 1px 4px rgba(0,0,0,.1)">📖<br><b>Gita</b><br><span style="opacity:.6">source</span></div>
+          <div style="flex:1;background:white;border-radius:6px;padding:8px;text-align:center;font-size:11px;box-shadow:0 1px 4px rgba(0,0,0,.1)">🧠<br><b>3</b><br><span style="opacity:.6">questions</span></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Gamified</h3>
+        <p>Streaks, XP, levels. Makes building attention feel rewarding. Duolingo-style energy.</p>
+      </div>
+    </div>
+
+    <div class="card" data-choice="journal" onclick="toggleSelect(this)">
+      <div class="card-image" style="background:linear-gradient(135deg,#f8f6f0,#eee8d5);padding:20px;min-height:120px;display:flex;flex-direction:column;justify-content:center;border-radius:8px 8px 0 0;font-family:Georgia,serif;">
+        <div style="font-size:11px;letter-spacing:1px;opacity:.5;margin-bottom:10px;font-family:sans-serif">THURSDAY · MAY 1</div>
+        <div style="font-size:15px;line-height:1.6;color:#3d3025;margin-bottom:8px">"You have power over your mind, not outside events. Realize this, and you will find strength."</div>
+        <div style="font-size:11px;opacity:.5;font-family:sans-serif">Marcus Aurelius · Focus time: <b>6m 42s ↑</b></div>
+      </div>
+      <div class="card-body">
+        <h3>Sacred Journal</h3>
+        <p>Feels like a personal journal. Warm, literary. Every session leaves a trace — your reading history.</p>
+      </div>
+    </div>
+  </div>
+</div>

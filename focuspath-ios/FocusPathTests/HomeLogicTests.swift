@@ -4,40 +4,45 @@ import XCTest
 final class HomeLogicTests: XCTestCase {
 
     private let calendar = Calendar.current
+    private let ref = Date() // single reference point for all relative dates
 
     // MARK: — streak
 
     func testStreakZeroWithNoSessions() {
-        XCTAssertEqual(HomeLogic.streak(sessionDates: []), 0)
+        XCTAssertEqual(HomeLogic.streak(sessionDates: [], referenceDate: ref), 0)
     }
 
     func testStreakOneForToday() {
-        XCTAssertEqual(HomeLogic.streak(sessionDates: [Date()]), 1)
+        XCTAssertEqual(HomeLogic.streak(sessionDates: [ref], referenceDate: ref), 1)
+    }
+
+    func testStreakCountsYesterdayWhenTodayNotDone() {
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: ref)!
+        // User completed yesterday but hasn't done today yet — streak should be alive
+        XCTAssertEqual(HomeLogic.streak(sessionDates: [yesterday], referenceDate: ref), 1)
     }
 
     func testStreakThreeConsecutiveDays() {
-        let today = Date()
-        let yesterday   = calendar.date(byAdding: .day, value: -1, to: today)!
-        let twoDaysAgo  = calendar.date(byAdding: .day, value: -2, to: today)!
-        XCTAssertEqual(HomeLogic.streak(sessionDates: [today, yesterday, twoDaysAgo]), 3)
+        let yesterday  = calendar.date(byAdding: .day, value: -1, to: ref)!
+        let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: ref)!
+        XCTAssertEqual(HomeLogic.streak(sessionDates: [ref, yesterday, twoDaysAgo], referenceDate: ref), 3)
     }
 
     func testStreakBreaksWithGap() {
-        let today      = Date()
-        let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: today)!
-        // yesterday missing → streak is 1 (today only)
-        XCTAssertEqual(HomeLogic.streak(sessionDates: [today, twoDaysAgo]), 1)
+        let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: ref)!
+        // yesterday and today missing → streak is 0 (gap breaks it)
+        XCTAssertEqual(HomeLogic.streak(sessionDates: [ref, twoDaysAgo], referenceDate: ref), 1)
     }
 
     func testStreakIgnoresDuplicatesOnSameDay() {
-        let now         = Date()
-        let oneHourAgo  = now.addingTimeInterval(-3600)
-        XCTAssertEqual(HomeLogic.streak(sessionDates: [now, oneHourAgo]), 1)
+        let oneHourAgo = ref.addingTimeInterval(-3600)
+        XCTAssertEqual(HomeLogic.streak(sessionDates: [ref, oneHourAgo], referenceDate: ref), 1)
     }
 
-    func testStreakZeroWhenOnlyOldSessions() {
-        let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: Date())!
-        XCTAssertEqual(HomeLogic.streak(sessionDates: [twoDaysAgo]), 0)
+    func testStreakZeroWhenOnlyTwoDaysAgo() {
+        let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: ref)!
+        // Neither today nor yesterday → 0
+        XCTAssertEqual(HomeLogic.streak(sessionDates: [twoDaysAgo], referenceDate: ref), 0)
     }
 
     // MARK: — soulRingProgress
@@ -54,9 +59,21 @@ final class HomeLogicTests: XCTestCase {
             0.0, accuracy: 0.001)
     }
 
-    func testSoulRingOneOfThree() {
+    func testSoulRingReadAlone() {
         XCTAssertEqual(
             HomeLogic.soulRingProgress(readDone: true, meditateDone: false, journalDone: false),
+            1.0 / 3.0, accuracy: 0.001)
+    }
+
+    func testSoulRingMeditateAlone() {
+        XCTAssertEqual(
+            HomeLogic.soulRingProgress(readDone: false, meditateDone: true, journalDone: false),
+            1.0 / 3.0, accuracy: 0.001)
+    }
+
+    func testSoulRingJournalAlone() {
+        XCTAssertEqual(
+            HomeLogic.soulRingProgress(readDone: false, meditateDone: false, journalDone: true),
             1.0 / 3.0, accuracy: 0.001)
     }
 
@@ -69,21 +86,24 @@ final class HomeLogicTests: XCTestCase {
     // MARK: — dayCount
 
     func testDayCountOnJoinDate() {
-        XCTAssertEqual(HomeLogic.dayCount(joinDate: Date(), today: Date()), 1)
+        XCTAssertEqual(HomeLogic.dayCount(joinDate: ref, today: ref), 1)
     }
 
     func testDayCountAfterTwoWeeks() {
-        let joinDate = calendar.date(byAdding: .day, value: -13, to: Date())!
-        XCTAssertEqual(HomeLogic.dayCount(joinDate: joinDate), 14)
+        let joinDate = calendar.date(byAdding: .day, value: -13, to: ref)!
+        XCTAssertEqual(HomeLogic.dayCount(joinDate: joinDate, today: ref), 14)
     }
 
     func testDayCountMinimumOne() {
-        // joinDate in the future should still return 1
-        let future = calendar.date(byAdding: .day, value: 5, to: Date())!
-        XCTAssertEqual(HomeLogic.dayCount(joinDate: future), 1)
+        let future = calendar.date(byAdding: .day, value: 5, to: ref)!
+        XCTAssertEqual(HomeLogic.dayCount(joinDate: future, today: ref), 1)
     }
 
     // MARK: — greeting
+
+    func testGreetingMidnight() {
+        XCTAssertEqual(HomeLogic.greeting(hour: 0), "Good morning")
+    }
 
     func testGreetingMorning() {
         XCTAssertEqual(HomeLogic.greeting(hour: 6),  "Good morning")
