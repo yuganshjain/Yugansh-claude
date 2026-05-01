@@ -31,10 +31,10 @@ enum XPSystem {
 
     static func levelNumber(for totalXP: Int) -> Int {
         let level = currentLevel(for: totalXP)
-        return (levels.firstIndex(where: { $0.threshold == level.threshold }) ?? 0) + 1
+        return (levels.firstIndex(where: { $0.name == level.name }) ?? 0) + 1
     }
 
-    static func xpFor(passage: Passage, quizScore: Int = 0) -> Int {
+    static func xpFor(passage: Passage) -> Int {
         50 + (passage.estimatedMinutes * 5)
     }
 }
