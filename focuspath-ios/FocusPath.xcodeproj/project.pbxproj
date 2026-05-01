@@ -20,9 +20,11 @@
 		A71F66960E755F551FD1832D /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012D149908A523F42152144D /* QuizQuestion.swift */; };
 		AAC4DB249DEB04BFB329BC0F /* FocusTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362246F2B1C0FF9ED157B48F /* FocusTimerView.swift */; };
 		AF090C9FF1884EED9725D04D /* ClaudeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CA3E310B89B77D0B1782A9 /* ClaudeServiceTests.swift */; };
+		C6413FE08E8C5848394199E6 /* WeeklyBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD1C62EDE809116D3C9D776 /* WeeklyBarChart.swift */; };
 		CA2A05E12B7704A976B9876D /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A3A12E9EDA9DDA70BC3AD4 /* QuizView.swift */; };
 		D5E69F4D685D46DFEC523B30 /* Passages.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CD4DE5847C228CF58AE8D2 /* Passages.json */; };
 		E58728218492604EB37826B2 /* Passage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B7D4C2A9CE8CB9BDD0744 /* Passage.swift */; };
+		EAD918DB7E71BF095DE13D3C /* QuizQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A83DD16C942CB0A622BA6E /* QuizQuestionView.swift */; };
 		F18AF0CF277647C0B65156AA /* ProgressView_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F4CF5F266BEB336AD1EF9A /* ProgressView_.swift */; };
 		F7C33DFA0EE43BD48C51A629 /* PassageStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C177F33D54BFD822F80E057 /* PassageStoreTests.swift */; };
 /* End PBXBuildFile section */
@@ -53,8 +55,10 @@
 		8F8DF08430D3BE27C039D830 /* FocusPathTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FocusPathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A3A12E9EDA9DDA70BC3AD4 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		AE514C355CCC54CC0119E1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B6A83DD16C942CB0A622BA6E /* QuizQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestionView.swift; sourceTree = "<group>"; };
 		C1F949C598C7CA65CFDF7146 /* FocusPath.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FocusPath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA94CFCBF11E3C450D6D0772 /* PassageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassageStore.swift; sourceTree = "<group>"; };
+		CCD1C62EDE809116D3C9D776 /* WeeklyBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyBarChart.swift; sourceTree = "<group>"; };
 		DCA161162776B8708F5228FE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DD5170947F4342BD1F042D9C /* QuizCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCache.swift; sourceTree = "<group>"; };
 		E34121F11468033CF970B69A /* ReadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingView.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		6632D27EEE0400DB73ACBD2F /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				B6A83DD16C942CB0A622BA6E /* QuizQuestionView.swift */,
 				92A3A12E9EDA9DDA70BC3AD4 /* QuizView.swift */,
 			);
 			path = Quiz;
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				55F4CF5F266BEB336AD1EF9A /* ProgressView_.swift */,
+				CCD1C62EDE809116D3C9D776 /* WeeklyBarChart.swift */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
@@ -282,10 +288,12 @@
 				F18AF0CF277647C0B65156AA /* ProgressView_.swift in Sources */,
 				9C8AA1244D06696C5940DED2 /* QuizCache.swift in Sources */,
 				A71F66960E755F551FD1832D /* QuizQuestion.swift in Sources */,
+				EAD918DB7E71BF095DE13D3C /* QuizQuestionView.swift in Sources */,
 				CA2A05E12B7704A976B9876D /* QuizView.swift in Sources */,
 				5C17446EDE209EBD80DE3649 /* ReadingView.swift in Sources */,
 				2D6839F70F58E4AA14618C8A /* SettingsView.swift in Sources */,
 				6C0C308875FB806FD2B0D8F9 /* Theme.swift in Sources */,
+				C6413FE08E8C5848394199E6 /* WeeklyBarChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
