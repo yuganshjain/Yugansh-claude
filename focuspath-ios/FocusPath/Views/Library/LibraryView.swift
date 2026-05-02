@@ -34,7 +34,7 @@ struct LibraryView: View {
                 }
                 .padding(20)
             }
-            .background(Theme.cream.ignoresSafeArea())
+            .background(Theme.background.ignoresSafeArea())
             .navigationTitle("Library")
             .navigationBarTitleDisplayMode(.large)
             .searchable(text: $searchText, prompt: "Search passages, authors\u{2026}")
@@ -45,14 +45,14 @@ struct LibraryView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("\(filteredPassages.count) results")
                 .font(.system(size: 12))
-                .foregroundStyle(Theme.brownMuted)
+                .foregroundStyle(Theme.textMuted)
             ForEach(filteredPassages) { passage in
                 PassageRow(passage: passage, read: readPassageIds.contains(passage.id))
             }
             if filteredPassages.isEmpty {
                 Text("No passages found for \u{201C}\(searchText)\u{201D}")
                     .font(.system(size: 14))
-                    .foregroundStyle(Theme.brownMuted)
+                    .foregroundStyle(Theme.textMuted)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.top, 20)
             }
@@ -74,12 +74,12 @@ private struct TraditionSection: View {
                 Text(tradition.displayName.uppercased())
                     .font(.system(size: 11, weight: .bold))
                     .tracking(1.5)
-                    .foregroundStyle(Theme.brownMuted)
+                    .foregroundStyle(Theme.textMuted)
                 Spacer()
                 let readCount = passages.filter { readIds.contains($0.id) }.count
                 Text("\(readCount)/\(passages.count) read")
                     .font(.system(size: 11))
-                    .foregroundStyle(Theme.brownMuted)
+                    .foregroundStyle(Theme.textMuted)
             }
             ForEach(passages) { passage in
                 PassageRow(passage: passage, read: readIds.contains(passage.id))
@@ -99,26 +99,26 @@ struct PassageRow: View {
                     HStack(spacing: 6) {
                         Text(passage.source)
                             .font(.system(size: 14, weight: .bold))
-                            .foregroundStyle(Theme.brown)
+                            .foregroundStyle(Theme.text)
                         Text("\u{00B7}")
-                            .foregroundStyle(Theme.brownMuted)
+                            .foregroundStyle(Theme.textMuted)
                         Text(passage.work)
                             .font(.system(size: 13))
-                            .foregroundStyle(Theme.brownMuted)
+                            .foregroundStyle(Theme.textMuted)
                             .lineLimit(1)
                     }
                     Text("\u{201C}\(passage.quote)\u{201D}")
                         .font(.system(size: 14, design: .serif))
-                        .foregroundStyle(Theme.brown)
+                        .foregroundStyle(Theme.text)
                         .lineLimit(2)
                     HStack(spacing: 8) {
                         Text("~\(passage.estimatedMinutes) min")
                             .font(.system(size: 11))
-                            .foregroundStyle(Theme.brownMuted)
+                            .foregroundStyle(Theme.textMuted)
                         if read {
                             Text("\u{2713} Read")
                                 .font(.system(size: 11, weight: .semibold))
-                                .foregroundStyle(Theme.greenOk)
+                                .foregroundStyle(Theme.green)
                         }
                     }
                 }
@@ -129,10 +129,10 @@ struct PassageRow: View {
                     .padding(.top, 2)
             }
             .padding(14)
-            .background(read ? Theme.greenOk.opacity(0.06) : Theme.creamDark)
+            .background(read ? Theme.green.opacity(0.06) : Theme.surface)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(read ? Theme.greenOk.opacity(0.3) : Theme.border, lineWidth: 1)
+                    .stroke(read ? Theme.green.opacity(0.3) : Theme.border, lineWidth: 1)
             )
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
