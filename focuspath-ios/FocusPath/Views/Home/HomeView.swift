@@ -95,21 +95,21 @@ struct HomeView: View {
                 title: "Read",
                 subtitle: "Today's sacred passage",
                 done: c.read
-            ) { selectedTab = 1 }
+            ) { selectedTab = Tab.practice.rawValue }
 
             PracticeTaskCard(
                 icon: "🧘",
                 title: "Meditate",
                 subtitle: "10 min · Breath awareness",
                 done: c.meditate
-            ) { selectedTab = 1 }
+            ) { selectedTab = Tab.practice.rawValue }
 
             PracticeTaskCard(
                 icon: "✍️",
                 title: "Reflect",
                 subtitle: "Today's journal prompt waiting",
                 done: c.journal
-            ) { selectedTab = 2 }
+            ) { selectedTab = Tab.journal.rawValue }
         }
     }
 

@@ -1,6 +1,10 @@
 import SwiftUI
 import SwiftData
 
+enum Tab: Int {
+    case home, practice, journal, you
+}
+
 @main
 struct FocusPathApp: App {
     var body: some Scene {
@@ -12,25 +16,25 @@ struct FocusPathApp: App {
 }
 
 struct MainTabView: View {
-    @State private var selectedTab = 0
+    @State private var selectedTab = Tab.home.rawValue
 
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeView(selectedTab: $selectedTab)
                 .tabItem { Label("Home", systemImage: "sparkles") }
-                .tag(0)
+                .tag(Tab.home.rawValue)
 
             PracticeView()
                 .tabItem { Label("Practice", systemImage: "leaf.fill") }
-                .tag(1)
+                .tag(Tab.practice.rawValue)
 
             JournalView()
                 .tabItem { Label("Journal", systemImage: "square.and.pencil") }
-                .tag(2)
+                .tag(Tab.journal.rawValue)
 
             YouView()
                 .tabItem { Label("You", systemImage: "person.fill") }
-                .tag(3)
+                .tag(Tab.you.rawValue)
         }
         .tint(Theme.saffron)
         .preferredColorScheme(.dark)
