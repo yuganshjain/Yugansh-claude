@@ -9,31 +9,29 @@ struct HomeView: View {
     @Query private var meditationSessions: [MeditationSession]
     @Query private var journalEntries: [JournalEntry]
 
-    // Stored as Double because @AppStorage doesn't support Date
     @AppStorage("soma.joinDate") private var joinDateInterval: Double = 0
+
+    private static let dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "EEEE, MMM d"
+        return f
+    }()
 
     private var joinDate: Date {
         joinDateInterval == 0 ? Date() : Date(timeIntervalSince1970: joinDateInterval)
     }
 
-    private var today: Date { Calendar.current.startOfDay(for: Date()) }
-
-    private var todayReadDone: Bool {
-        readSessions.contains { Calendar.current.startOfDay(for: $0.date) == today }
-    }
-    private var todayMeditateDone: Bool {
-        meditationSessions.contains { Calendar.current.startOfDay(for: $0.completedAt) == today }
-    }
-    private var todayJournalDone: Bool {
-        journalEntries.contains { Calendar.current.startOfDay(for: $0.date) == today }
+    private var todayCompletion: (read: Bool, meditate: Bool, journal: Bool) {
+        let today = Calendar.current.startOfDay(for: Date())
+        let readDone = readSessions.contains { Calendar.current.startOfDay(for: $0.date) == today }
+        let meditateDone = meditationSessions.contains { Calendar.current.startOfDay(for: $0.completedAt) == today }
+        let journalDone = journalEntries.contains { Calendar.current.startOfDay(for: $0.date) == today }
+        return (readDone, meditateDone, journalDone)
     }
 
     private var soulProgress: Double {
-        HomeLogic.soulRingProgress(
-            readDone: todayReadDone,
-            meditateDone: todayMeditateDone,
-            journalDone: todayJournalDone
-        )
+        let c = todayCompletion
+        return HomeLogic.soulRingProgress(readDone: c.read, meditateDone: c.meditate, journalDone: c.journal)
     }
 
     private var totalXP: Int {
@@ -58,16 +56,14 @@ struct HomeView: View {
         .onAppear { setJoinDateIfNeeded() }
     }
 
-    // MARK: — Sections
+    // MARK: - Sections
 
     private var headerSection: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("\(HomeLogic.greeting()) 🙏")
                 .font(.system(size: 26, weight: .black))
                 .foregroundStyle(Theme.text)
-            let f = DateFormatter()
-            f.dateFormat = "EEEE, MMM d"
-            Text("\(f.string(from: Date())) · Day \(HomeLogic.dayCount(joinDate: joinDate))")
+            Text("\(Self.dateFormatter.string(from: Date())) · Day \(HomeLogic.dayCount(joinDate: joinDate))")
                 .font(.system(size: 13))
                 .foregroundStyle(Theme.textMuted)
         }
@@ -87,7 +83,8 @@ struct HomeView: View {
     }
 
     private var todaySection: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        let c = todayCompletion
+        return VStack(alignment: .leading, spacing: 10) {
             Text("TODAY'S PRACTICE")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1.5)
@@ -97,26 +94,26 @@ struct HomeView: View {
                 icon: "📖",
                 title: "Read",
                 subtitle: "Today's sacred passage",
-                done: todayReadDone
+                done: c.read
             ) { selectedTab = 1 }
 
             PracticeTaskCard(
                 icon: "🧘",
                 title: "Meditate",
                 subtitle: "10 min · Breath awareness",
-                done: todayMeditateDone
+                done: c.meditate
             ) { selectedTab = 1 }
 
             PracticeTaskCard(
                 icon: "✍️",
                 title: "Reflect",
                 subtitle: "Today's journal prompt waiting",
-                done: todayJournalDone
+                done: c.journal
             ) { selectedTab = 2 }
         }
     }
 
-    // MARK: — Helpers
+    // MARK: - Helpers
 
     private func setJoinDateIfNeeded() {
         if joinDateInterval == 0 {
@@ -125,7 +122,7 @@ struct HomeView: View {
     }
 }
 
-// MARK: — PracticeTaskCard
+// MARK: - PracticeTaskCard
 
 private struct PracticeTaskCard: View {
     let icon: String
