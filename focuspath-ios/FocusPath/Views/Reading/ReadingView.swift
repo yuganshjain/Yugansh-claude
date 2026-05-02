@@ -136,7 +136,7 @@ struct ReadingView: View {
     }
 
     private func finishReading(_ passage: Passage) {
-        let earned = XPSystem.xpFor(passage: passage, quizScore: 0)
+        let earned = XPSystem.xpFor(passage: passage)
         let session = FocusSession(
             passageId: passage.id,
             xpEarned: earned,
