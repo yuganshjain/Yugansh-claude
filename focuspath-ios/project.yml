@@ -17,13 +17,12 @@ targets:
       - FocusPath/Data/Passages.json
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.yuganshjain.focuspath
+        PRODUCT_BUNDLE_IDENTIFIER: com.yuganshjain.soma
         TARGETED_DEVICE_FAMILY: "1"
         MARKETING_VERSION: "1.0"
         CURRENT_PROJECT_VERSION: "1"
         INFOPLIST_FILE: FocusPath/Info.plist
         SWIFT_STRICT_CONCURRENCY: complete
-        ANTHROPIC_API_KEY: ""
     info:
       path: FocusPath/Info.plist
       properties:
@@ -32,10 +31,9 @@ targets:
           - UIInterfaceOrientationPortrait
         UIRequiredDeviceCapabilities:
           - arm64
-        CFBundleDisplayName: FocusPath
+        CFBundleDisplayName: Soma
         NSUserTrackingUsageDescription: ""
         ITSAppUsesNonExemptEncryption: false
-        ANTHROPIC_API_KEY: $(ANTHROPIC_API_KEY)
     scheme:
       testTargets:
         - FocusPathTests
