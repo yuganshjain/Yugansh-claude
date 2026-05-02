@@ -21,12 +21,12 @@ struct ReadingView: View {
                     content(passage)
                 }
             } else {
-                Text("Passage not found").foregroundStyle(Theme.brownMuted)
+                Text("Passage not found").foregroundStyle(Theme.textMuted)
             }
         }
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Theme.cream.ignoresSafeArea())
+        .background(Theme.background.ignoresSafeArea())
     }
 
     @ViewBuilder
@@ -48,14 +48,14 @@ struct ReadingView: View {
                     Text("\(passage.source) \u{00B7} \(passage.work)")
                         .font(.system(size: 12, weight: .bold))
                         .tracking(1.5)
-                        .foregroundStyle(Theme.brownMuted)
+                        .foregroundStyle(Theme.textMuted)
                         .padding(.top, 8)
 
                     VStack(alignment: .leading, spacing: 16) {
                         ForEach(passage.body.components(separatedBy: "\n\n"), id: \.self) { para in
                             Text(para)
                                 .font(.system(size: 17, design: .serif))
-                                .foregroundStyle(Theme.brown)
+                                .foregroundStyle(Theme.text)
                                 .lineSpacing(6)
                         }
                     }
@@ -85,7 +85,7 @@ struct ReadingView: View {
                     }
                 )
             }
-            .background(Theme.cream)
+            .background(Theme.background)
         }
     }
 
@@ -102,10 +102,10 @@ struct ReadingView: View {
                 VStack(spacing: 8) {
                     Text("Session Complete")
                         .font(.system(size: 28, weight: .black))
-                        .foregroundStyle(Theme.brown)
+                        .foregroundStyle(Theme.text)
                     Text("\(passage.source) \u{00B7} \(passage.work)")
                         .font(.system(size: 13))
-                        .foregroundStyle(Theme.brownMuted)
+                        .foregroundStyle(Theme.textMuted)
                 }
 
                 VStack(spacing: 6) {
@@ -114,32 +114,31 @@ struct ReadingView: View {
                         .foregroundStyle(Theme.saffron)
                     Text("Come back tomorrow for a new passage")
                         .font(.system(size: 13))
-                        .foregroundStyle(Theme.brownMuted)
+                        .foregroundStyle(Theme.textMuted)
                         .multilineTextAlignment(.center)
                 }
                 .padding(20)
                 .frame(maxWidth: .infinity)
-                .background(Theme.creamDark)
+                .background(Theme.surface)
                 .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.border, lineWidth: 1))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
 
                 Text("\u{201C}\(passage.quote)\u{201D}")
                     .font(.system(size: 16, design: .serif))
-                    .foregroundStyle(Theme.brown)
+                    .foregroundStyle(Theme.text)
                     .lineSpacing(5)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 8)
             }
             .padding(24)
         }
-        .background(Theme.cream.ignoresSafeArea())
+        .background(Theme.background.ignoresSafeArea())
     }
 
     private func finishReading(_ passage: Passage) {
         let earned = XPSystem.xpFor(passage: passage, quizScore: 0)
         let session = FocusSession(
             passageId: passage.id,
-            quizScore: 0,
             xpEarned: earned,
             completed: true
         )
