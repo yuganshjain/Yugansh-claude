@@ -1,0 +1,7 @@
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+build/
+*.ipa
+FocusPath/Config.xcconfig

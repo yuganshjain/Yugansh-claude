@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f0f1a; font-family: -apple-system, sans-serif; color: #fff; padding: 28px 24px; }
+  h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; text-align: center; }
+  .subtitle { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 32px; text-align: center; }
+
+  .names { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; max-width: 700px; margin: 0 auto 32px; }
+
+  .name-card {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 24px 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .name-card:hover { border-color: rgba(244,162,97,0.5); transform: translateY(-2px); }
+  .name-card.selected { border-color: #f4a261; background: rgba(244,162,97,0.08); }
+
+  .name-word {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .name-meaning {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .name-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  .name-vibe {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+
+  /* individual colours */
+  .card-dharma .name-word { background: linear-gradient(135deg, #f4a261, #e85d04); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-dharma .name-vibe { background: rgba(244,162,97,0.15); color: #f4a261; }
+  .card-dharma { border-color: rgba(244,162,97,0.2); }
+
+  .card-lumina .name-word { background: linear-gradient(135deg, #a855f7, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-lumina .name-vibe { background: rgba(168,85,247,0.15); color: #a855f7; }
+  .card-lumina { border-color: rgba(168,85,247,0.2); }
+
+  .card-atman .name-word { background: linear-gradient(135deg, #2dd4bf, #0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-atman .name-vibe { background: rgba(45,212,191,0.15); color: #2dd4bf; }
+  .card-atman { border-color: rgba(45,212,191,0.2); }
+
+  .card-sutra .name-word { background: linear-gradient(135deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-sutra .name-vibe { background: rgba(251,191,36,0.15); color: #fbbf24; }
+  .card-sutra { border-color: rgba(251,191,36,0.2); }
+
+  .card-sanctum .name-word { background: linear-gradient(135deg, #f472b6, #db2777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-sanctum .name-vibe { background: rgba(244,114,182,0.15); color: #f472b6; }
+  .card-sanctum { border-color: rgba(244,114,182,0.2); }
+
+  .card-soma .name-word { background: linear-gradient(135deg, #86efac, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .card-soma .name-vibe { background: rgba(134,239,172,0.15); color: #86efac; }
+  .card-soma { border-color: rgba(134,239,172,0.2); }
+
+  .rec-badge {
+    display: inline-block;
+    background: rgba(244,162,97,0.2);
+    color: #f4a261;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+</style>
+<script>
+function select(el) {
+  document.querySelectorAll('.name-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  if (window.recordChoice) recordChoice(el.dataset.choice, el.querySelector('.name-word').textContent);
+}
+</script>
+</head>
+<body>
+
+<h2>What should this app be called?</h2>
+<p class="subtitle">The name sets the tone for everything — design, App Store listing, word of mouth</p>
+
+<div class="names">
+
+  <div class="name-card card-dharma" data-choice="dharma" onclick="select(this)">
+    <div class="rec-badge">⭐ My pick</div>
+    <div class="name-word">Dharma</div>
+    <div class="name-meaning">Sanskrit · your righteous path</div>
+    <div class="name-tagline">Live your purpose. Read. Meditate. Reflect.</div>
+    <div class="name-vibe">Deep · Universal · Purposeful</div>
+  </div>
+
+  <div class="name-card card-lumina" data-choice="lumina" onclick="select(this)">
+    <div class="name-word">Lumina</div>
+    <div class="name-meaning">Latin · inner light</div>
+    <div class="name-tagline">Find the light within. Every morning.</div>
+    <div class="name-vibe">Warm · Accessible · Modern</div>
+  </div>
+
+  <div class="name-card card-atman" data-choice="atman" onclick="select(this)">
+    <div class="name-word">Ātman</div>
+    <div class="name-meaning">Sanskrit · the inner self / soul</div>
+    <div class="name-tagline">Know yourself. Grow yourself.</div>
+    <div class="name-vibe">Deep · Eastern · Poetic</div>
+  </div>
+
+  <div class="name-card card-sutra" data-choice="sutra" onclick="select(this)">
+    <div class="name-word">Sutra</div>
+    <div class="name-meaning">Sanskrit · thread of wisdom</div>
+    <div class="name-tagline">Ancient wisdom. Daily practice.</div>
+    <div class="name-vibe">Grounded · Wise · Minimal</div>
+  </div>
+
+  <div class="name-card card-sanctum" data-choice="sanctum" onclick="select(this)">
+    <div class="name-word">Sanctum</div>
+    <div class="name-meaning">Latin · sacred inner space</div>
+    <div class="name-tagline">Your sacred space. Every day.</div>
+    <div class="name-vibe">Sacred · Calm · Exclusive</div>
+  </div>
+
+  <div class="name-card card-soma" data-choice="soma" onclick="select(this)">
+    <div class="name-word">Soma</div>
+    <div class="name-meaning">Sanskrit · body & bliss</div>
+    <div class="name-tagline">Nourish your mind, body and soul.</div>
+    <div class="name-vibe">Fresh · Wellness · Young</div>
+  </div>
+
+</div>
+
+<p style="text-align:center; font-size:13px; color:rgba(255,255,255,0.4)">Click your favourite, then confirm in the chat. Or suggest your own name.</p>
+
+</body>
+</html>

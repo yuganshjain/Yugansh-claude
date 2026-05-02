@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "3000", "--directory", "gravity-playground"],
       "port": 3000
+    },
+    {
+      "name": "dslr-masterclass",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "dslr-masterclass", "--", "--port", "5179"],
+      "port": 5179
     }
   ]
 }

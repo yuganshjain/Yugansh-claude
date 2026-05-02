@@ -1,0 +1,156 @@
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import Link from "next/link";
+import MoodChart from "@/components/dashboard/MoodChart";
+import EntryList from "@/components/dashboard/EntryList";
+import StreakBadge from "@/components/dashboard/StreakBadge";
+import MoodCalendar from "@/components/dashboard/MoodCalendar";
+import MemoryLane from "@/components/dashboard/MemoryLane";
+
+async function getStreak(userId: string): Promise<number> {
+  const entries = await prisma.journalEntry.findMany({
+    where: { userId },
+    orderBy: { createdAt: "desc" },
+    select: { createdAt: true },
+  });
+  if (entries.length === 0) return 0;
+  let streak = 0;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  for (let i = 0; i < entries.length; i++) {
+    const d = new Date(entries[i].createdAt);
+    d.setHours(0, 0, 0, 0);
+    const expected = new Date(today);
+    expected.setDate(today.getDate() - i);
+    if (d.getTime() === expected.getTime()) streak++;
+    else break;
+  }
+  return streak;
+}
+
+async function getMemories(userId: string) {
+  const now = new Date();
+  const targets = [
+    { daysAgo: 7, label: "1 week ago" },
+    { daysAgo: 30, label: "1 month ago" },
+    { daysAgo: 365, label: "1 year ago" },
+  ];
+
+  const memories = [];
+  for (const { daysAgo, label } of targets) {
+    const targetDate = new Date(now);
+    targetDate.setDate(now.getDate() - daysAgo);
+    // Look for entries within ±1 day of the target
+    const start = new Date(targetDate);
+    start.setHours(0, 0, 0, 0);
+    const end = new Date(targetDate);
+    end.setHours(23, 59, 59, 999);
+
+    const entry = await prisma.journalEntry.findFirst({
+      where: { userId, createdAt: { gte: start, lte: end } },
+      orderBy: { createdAt: "desc" },
+    });
+    if (entry) {
+      memories.push({ ...entry, label });
+    }
+  }
+  return memories;
+}
+
+export default async function DashboardPage() {
+  const session = await auth();
+  const userId = (session!.user as any).id as string;
+
+  const [entries, streak, memories] = await Promise.all([
+    prisma.journalEntry.findMany({
+      where: { userId },
+      orderBy: { createdAt: "desc" },
+      take: 10,
+    }),
+    getStreak(userId),
+    getMemories(userId),
+  ]);
+
+  const last7 = entries.slice(0, 7).reverse().map((e) => ({
+    date: new Date(e.createdAt).toLocaleDateString("en-US", { weekday: "short" }),
+    mood: e.moodScore,
+  }));
+
+  const todayEntry = entries.find((e) => {
+    const d = new Date(e.createdAt);
+    return d.toDateString() === new Date().toDateString();
+  });
+
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening";
+
+  return (
+    <div className="max-w-4xl">
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
+            Good {greeting}, {session?.user?.name?.split(" ")[0]} 👋
+          </h1>
+          <p className="mt-1 text-sm" style={{ color: "var(--text-secondary)" }}>
+            {todayEntry ? "You've journaled today. Great job!" : "You haven't journaled yet today."}
+          </p>
+        </div>
+        <StreakBadge streak={streak} />
+      </div>
+
+      {!todayEntry && (
+        <Link href="/journal/new">
+          <div className="bg-violet-600 text-white rounded-2xl p-6 mb-8 cursor-pointer hover:bg-violet-700 transition">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-lg font-semibold mb-1">How are you feeling today?</h2>
+                <p className="text-violet-200 text-sm">Tap to write your daily entry</p>
+              </div>
+              <span className="text-4xl">✍️</span>
+            </div>
+          </div>
+        </Link>
+      )}
+
+      <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="rounded-2xl p-6 border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+          <h3 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Mood this week</h3>
+          <MoodChart data={last7} />
+        </div>
+        <div className="rounded-2xl p-6 border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+          <h3 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Stats</h3>
+          <div className="space-y-3 mt-2">
+            <div className="flex justify-between text-sm">
+              <span style={{ color: "var(--text-secondary)" }}>Total entries</span>
+              <span className="font-semibold" style={{ color: "var(--text-primary)" }}>{entries.length}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span style={{ color: "var(--text-secondary)" }}>Avg mood</span>
+              <span className="font-semibold" style={{ color: "var(--text-primary)" }}>
+                {entries.length > 0 ? (entries.reduce((s, e) => s + e.moodScore, 0) / entries.length).toFixed(1) : "—"}/10
+              </span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span style={{ color: "var(--text-secondary)" }}>Current streak</span>
+              <span className="font-semibold" style={{ color: "var(--text-primary)" }}>{streak} days 🔥</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-2xl p-6 border mb-8" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+        <MoodCalendar />
+      </div>
+
+      <MemoryLane memories={memories} />
+
+      <div className="rounded-2xl p-6 border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-color)" }}>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Recent entries</h3>
+          <Link href="/journal/new" className="text-xs text-violet-600 hover:underline font-medium">+ New entry</Link>
+        </div>
+        <EntryList entries={entries} />
+      </div>
+    </div>
+  );
+}

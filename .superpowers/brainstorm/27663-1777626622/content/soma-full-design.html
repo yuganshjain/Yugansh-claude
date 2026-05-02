@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #080810; font-family: -apple-system, sans-serif; color: #fff; padding: 28px 20px; }
+
+  h2 { font-size: 26px; font-weight: 900; text-align: center; margin-bottom: 4px;
+    background: linear-gradient(135deg, #86efac, #f4a261);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .sub { font-size: 14px; color: rgba(255,255,255,0.4); text-align: center; margin-bottom: 8px; }
+  .tagline { font-size: 16px; color: rgba(255,255,255,0.7); text-align: center; font-style: italic; margin-bottom: 36px; }
+
+  .phones { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+
+  .phone {
+    width: 220px; flex-shrink: 0;
+    background: #0d0d20;
+    border-radius: 36px;
+    padding: 14px 10px 10px;
+    border: 1.5px solid rgba(255,255,255,0.07);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  }
+  .phone-label {
+    text-align: center; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; color: rgba(255,255,255,0.25);
+    margin-bottom: 10px; text-transform: uppercase;
+  }
+  .screen {
+    background: #0a0a1a; border-radius: 26px;
+    overflow: hidden; min-height: 400px; padding: 16px 12px 56px;
+    position: relative;
+  }
+
+  /* Nav */
+  .nav {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(10,10,26,0.95);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; padding: 8px 0 10px;
+  }
+  .ni { flex: 1; text-align: center; }
+  .ni .ic { font-size: 16px; display: block; }
+  .ni .lb { font-size: 8px; color: rgba(255,255,255,0.25); margin-top: 2px; }
+  .ni.on .lb { color: #86efac; }
+
+  /* Common */
+  .g { font-size: 16px; font-weight: 800; margin-bottom: 2px; }
+  .d { font-size: 10px; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
+  .sec { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,0.25); text-transform: uppercase; margin: 12px 0 6px; }
+
+  /* HOME */
+  .ring-row { display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 12px; margin-bottom: 10px; }
+  .ring-info h3 { font-size: 14px; font-weight: 800; }
+  .ring-info p { font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 1px; }
+  .ring-stats { display: flex; gap: 8px; margin-top: 6px; }
+  .rs { font-size: 9px; }
+  .task {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 11px; padding: 9px 11px; margin-bottom: 6px;
+  }
+  .task.done { opacity: 0.45; }
+  .task-ic { font-size: 18px; width: 26px; }
+  .task-txt h4 { font-size: 11px; font-weight: 700; }
+  .task-txt p { font-size: 9px; color: rgba(255,255,255,0.4); }
+  .task-chk { margin-left: auto; font-size: 13px; }
+
+  /* PRACTICE */
+  .read-card {
+    background: linear-gradient(135deg, #f4a261, #e85d04);
+    border-radius: 14px; padding: 14px; margin-bottom: 10px;
+  }
+  .read-card .eye { font-size: 8px; font-weight: 700; letter-spacing: 1.5px; opacity: 0.7; margin-bottom: 5px; text-transform: uppercase; }
+  .read-card .qt { font-size: 11px; line-height: 1.5; font-style: italic; }
+  .read-card .src { font-size: 9px; opacity: 0.65; margin-top: 6px; }
+  .med-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .med-chip {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 8px 10px; font-size: 10px; text-align: center; flex: 1; min-width: 44%;
+  }
+  .med-chip .mic { font-size: 16px; margin-bottom: 3px; }
+  .med-chip h4 { font-size: 10px; font-weight: 700; }
+  .med-chip p { font-size: 8px; color: rgba(255,255,255,0.4); }
+  .timer-chip { border-color: rgba(134,239,172,0.3); background: rgba(134,239,172,0.05); }
+  .timer-chip p { color: #86efac !important; }
+
+  /* JOURNAL */
+  .int-card {
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    border-radius: 14px; padding: 14px; margin-bottom: 10px;
+  }
+  .int-card h3 { font-size: 12px; font-weight: 800; margin-bottom: 3px; }
+  .int-card p { font-size: 10px; opacity: 0.8; font-style: italic; line-height: 1.4; }
+  .prompt-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 12px; margin-bottom: 8px;
+  }
+  .prompt-card .q { font-size: 11px; font-weight: 600; line-height: 1.5; margin-bottom: 8px; }
+  .mock-inp {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 8px; font-size: 10px; color: rgba(255,255,255,0.25);
+    width: 100%;
+  }
+  .past { display: flex; gap: 8px;
+    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px; padding: 8px 10px; margin-bottom: 5px; }
+  .past-dt { font-size: 8px; color: rgba(255,255,255,0.3); min-width: 28px; }
+  .past-tx { font-size: 9px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  /* YOU */
+  .profile-head { text-align: center; margin-bottom: 14px; }
+  .avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #86efac, #f4a261);
+    margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+  .profile-head h3 { font-size: 14px; font-weight: 800; }
+  .profile-head p { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 1px; }
+  .xp-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 4px; height: 5px; margin: 8px 0 4px; }
+  .xp-bar { height: 5px; border-radius: 4px; background: linear-gradient(90deg, #86efac, #f4a261); width: 45%; }
+  .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px; margin-bottom: 10px; }
+  .stat-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 8px 4px; text-align: center; }
+  .stat-box .sv { font-size: 16px; font-weight: 800; color: #86efac; }
+  .stat-box .sl { font-size: 8px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+  .badges-row { display: flex; gap: 5px; flex-wrap: wrap; }
+  .badge-ic { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+
+  /* FEATURES section */
+  .features { max-width: 860px; margin: 0 auto; }
+  .feat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .feat-box {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 16px;
+  }
+  .feat-box .fi { font-size: 24px; margin-bottom: 8px; }
+  .feat-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .feat-box p { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+  .feat-box .example { margin-top: 8px; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 10px; color: rgba(255,255,255,0.55); font-style: italic; }
+</style>
+</head>
+<body>
+
+<h2>Soma</h2>
+<p class="sub">iOS App · Free · App Store</p>
+<p class="tagline">"Nourish your mind, body and soul."</p>
+
+<!-- 4 PHONE SCREENS -->
+<div class="phones">
+
+  <!-- HOME -->
+  <div class="phone">
+    <div class="phone-label">Home</div>
+    <div class="screen">
+      <div class="g">Good morning 🙏</div>
+      <div class="d">Thursday · Day 14 of your journey</div>
+
+      <div class="ring-row">
+        <svg width="54" height="54" viewBox="0 0 54 54">
+          <circle cx="27" cy="27" r="22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5"/>
+          <circle cx="27" cy="27" r="22" fill="none" stroke="#86efac" stroke-width="5"
+            stroke-dasharray="46 138" stroke-dashoffset="35" stroke-linecap="round"/>
+          <text x="27" y="32" text-anchor="middle" fill="white" font-size="11" font-weight="800">33%</text>
+        </svg>
+        <div class="ring-info">
+          <h3>Seeker <span style="color:#86efac">Lv 2</span></h3>
+          <p>340 XP · 160 to Scholar</p>
+          <div class="ring-stats">
+            <div class="rs">🔥 14</div>
+            <div class="rs">📖 18</div>
+            <div class="rs">🧘 6h</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">Today's Practice</div>
+
+      <div class="task done">
+        <div class="task-ic">📖</div>
+        <div class="task-txt"><h4>Read</h4><p>Tao Te Ching · +60 XP</p></div>
+        <div class="task-chk" style="color:#86efac">✓</div>
+      </div>
+      <div class="task">
+        <div class="task-ic">🧘</div>
+        <div class="task-txt"><h4>Meditate</h4><p>10 min · Breath</p></div>
+        <div class="task-chk" style="color:rgba(255,255,255,0.12)">○</div>
+      </div>
+      <div class="task">
+        <div class="task-ic">✍️</div>
+        <div class="task-txt"><h4>Reflect</h4><p>Today's prompt waiting</p></div>
+        <div class="task-chk" style="color:rgba(255,255,255,0.12)">○</div>
+      </div>
+
+      <div class="nav">
+        <div class="ni on"><span class="ic">✦</span><div class="lb" style="color:#86efac">Home</div></div>
+        <div class="ni"><span class="ic">🪷</span><div class="lb">Practice</div></div>
+        <div class="ni"><span class="ic">✍️</span><div class="lb">Journal</div></div>
+        <div class="ni"><span class="ic">👤</span><div class="lb">You</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRACTICE -->
+  <div class="phone">
+    <div class="phone-label">Practice</div>
+    <div class="screen">
+      <div class="g" style="font-size:15px; margin-bottom:12px">Practice</div>
+
+      <div class="read-card">
+        <div class="eye">Today's Reading</div>
+        <div class="qt">"The highest good is like water — it nourishes without effort."</div>
+        <div class="src">Lao Tzu · Tao Te Ching · ~6 min · +60 XP →</div>
+      </div>
+
+      <div class="sec">Meditate</div>
+      <div class="med-row">
+        <div class="med-chip"><div class="mic">🌬️</div><h4>Breath</h4><p>5 min</p></div>
+        <div class="med-chip"><div class="mic">🌿</div><h4>Body Scan</h4><p>10 min</p></div>
+        <div class="med-chip"><div class="mic">🕊️</div><h4>Stillness</h4><p>15 min</p></div>
+        <div class="med-chip timer-chip"><div class="mic">⏱️</div><h4>Silent Timer</h4><p>Your pace</p></div>
+      </div>
+
+      <div class="sec">Library</div>
+      <div style="display:flex; gap:5px; flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:6px 10px;font-size:9px">Stoics</div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:6px 10px;font-size:9px">Gita</div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:6px 10px;font-size:9px">Tao</div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:6px 10px;font-size:9px">Upanishads</div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:6px 10px;font-size:9px">Bible</div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:6px 10px;font-size:9px">Quran</div>
+      </div>
+
+      <div class="nav">
+        <div class="ni"><span class="ic">✦</span><div class="lb">Home</div></div>
+        <div class="ni on"><span class="ic">🪷</span><div class="lb" style="color:#86efac">Practice</div></div>
+        <div class="ni"><span class="ic">✍️</span><div class="lb">Journal</div></div>
+        <div class="ni"><span class="ic">👤</span><div class="lb">You</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOURNAL -->
+  <div class="phone">
+    <div class="phone-label">Journal</div>
+    <div class="screen">
+      <div class="g" style="font-size:15px; margin-bottom:12px">Journal</div>
+
+      <div class="int-card">
+        <h3>🌟 2025 Intention</h3>
+        <p>"Become the most disciplined and peaceful version of myself"</p>
+      </div>
+
+      <div class="sec">Today's Prompt</div>
+      <div class="prompt-card">
+        <div class="q">What is one thing you keep avoiding that your future self will thank you for starting today?</div>
+        <div class="mock-inp">Write your reflection here...</div>
+      </div>
+
+      <div class="sec">Past Entries</div>
+      <div class="past"><div class="past-dt">Apr 30</div><div class="past-tx">"Patience isn't passive — it's the hardest form of action..."</div></div>
+      <div class="past"><div class="past-dt">Apr 29</div><div class="past-tx">"The Stoic reading hit different. I waste so much energy on..."</div></div>
+
+      <div class="nav">
+        <div class="ni"><span class="ic">✦</span><div class="lb">Home</div></div>
+        <div class="ni"><span class="ic">🪷</span><div class="lb">Practice</div></div>
+        <div class="ni on"><span class="ic">✍️</span><div class="lb" style="color:#86efac">Journal</div></div>
+        <div class="ni"><span class="ic">👤</span><div class="lb">You</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOU -->
+  <div class="phone">
+    <div class="phone-label">You</div>
+    <div class="screen">
+      <div class="profile-head">
+        <div class="avatar">🌱</div>
+        <h3>Yugansh</h3>
+        <p>Seeker · Level 2</p>
+        <div class="xp-bar-wrap"><div class="xp-bar"></div></div>
+        <p style="font-size:9px;color:rgba(255,255,255,0.3)">340 XP · 160 to Scholar</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-box"><div class="sv">18</div><div class="sl">Read</div></div>
+        <div class="stat-box"><div class="sv">6h</div><div class="sl">Meditated</div></div>
+        <div class="stat-box"><div class="sv">14</div><div class="sl">Streak 🔥</div></div>
+      </div>
+
+      <div class="sec">Badges</div>
+      <div class="badges-row">
+        <div class="badge-ic">📖</div>
+        <div class="badge-ic">🔥</div>
+        <div class="badge-ic">🧘</div>
+        <div class="badge-ic">✍️</div>
+        <div class="badge-ic" style="opacity:0.25">🏆</div>
+        <div class="badge-ic" style="opacity:0.25">⭐</div>
+      </div>
+
+      <div class="nav">
+        <div class="ni"><span class="ic">✦</span><div class="lb">Home</div></div>
+        <div class="ni"><span class="ic">🪷</span><div class="lb">Practice</div></div>
+        <div class="ni"><span class="ic">✍️</span><div class="lb">Journal</div></div>
+        <div class="ni on"><span class="ic">👤</span><div class="lb" style="color:#86efac">You</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- EXTRA FEATURES -->
+<div class="features">
+  <h3 style="font-size:16px; font-weight:800; margin-bottom:4px; text-align:center">Built-in features that drive habit & growth</h3>
+  <p style="font-size:12px; color:rgba(255,255,255,0.35); text-align:center; margin-bottom:4px">Included in v1</p>
+  <div class="feat-row">
+    <div class="feat-box">
+      <div class="fi">🌅</div>
+      <h4>Morning notification</h4>
+      <p>7am push — notification body is today's quote, not "Time to read!" Tap opens directly to the passage.</p>
+      <div class="example">"You have power over your mind, not outside events." — Tap to read today →</div>
+    </div>
+    <div class="feat-box">
+      <div class="fi">🎨</div>
+      <h4>Share quote card</h4>
+      <p>After reading, one tap generates a beautiful dark-theme image card to share on Instagram or WhatsApp.</p>
+      <div class="example">Dark bg · green quote text · Soma wordmark · source attribution</div>
+    </div>
+    <div class="feat-box">
+      <div class="fi">🌡️</div>
+      <h4>Mood-based reading</h4>
+      <p>"How are you feeling?" — Anxious / Lost / Grateful / Empty — app picks the perfect passage for right now.</p>
+      <div class="example">Feeling anxious → Marcus Aurelius. Feeling lost → Bhagavad Gita.</div>
+    </div>
+    <div class="feat-box">
+      <div class="fi">📊</div>
+      <h4>Weekly soul report</h4>
+      <p>Every Sunday: shareable card showing passages read, meditation minutes, best journal line, XP earned.</p>
+      <div class="example">"Week 14 · 5 sessions · 47 min meditated · 340 XP"</div>
+    </div>
+    <div class="feat-box">
+      <div class="fi">🏅</div>
+      <h4>Badges & milestones</h4>
+      <p>Earned through real practice. Screenshot-worthy. Builds identity — "I'm a Soma Seeker."</p>
+      <div class="example">🔥 30-day streak · 📖 Read all Stoics · 🧘 10 hours meditated</div>
+    </div>
+    <div class="feat-box">
+      <div class="fi">365</div>
+      <h4>365 journal prompts</h4>
+      <p>A new deep question every day of the year. Never repetitive. Written specifically for spiritual growth.</p>
+      <div class="example">"What would you do today if you knew fear wasn't real?"</div>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center; margin-top:36px; font-size:13px; color:rgba(255,255,255,0.4)">
+  This is the complete Soma app. Does this design feel right? Say yes and I'll write the full spec and plan.
+</p>
+
+</body>
+</html>
