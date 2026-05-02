@@ -7,7 +7,7 @@ struct FocusPathApp: App {
         WindowGroup {
             MainTabView()
         }
-        .modelContainer(for: [FocusSession.self, QuizCache.self])
+        .modelContainer(for: [FocusSession.self, MeditationSession.self, JournalEntry.self])
     }
 }
 
@@ -16,23 +16,24 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            DashboardView()
-                .tabItem { Label("Home", systemImage: "house.fill") }
+            HomeView(selectedTab: $selectedTab)
+                .tabItem { Label("Home", systemImage: "sparkles") }
                 .tag(0)
 
-            LibraryView()
-                .tabItem { Label("Library", systemImage: "books.vertical.fill") }
+            PracticeView()
+                .tabItem { Label("Practice", systemImage: "leaf.fill") }
                 .tag(1)
 
-            ProgressView_()
-                .tabItem { Label("Progress", systemImage: "chart.bar.fill") }
+            JournalView()
+                .tabItem { Label("Journal", systemImage: "square.and.pencil") }
                 .tag(2)
 
-            SettingsView()
-                .tabItem { Label("Settings", systemImage: "gearshape.fill") }
+            YouView()
+                .tabItem { Label("You", systemImage: "person.fill") }
                 .tag(3)
         }
         .tint(Theme.saffron)
+        .preferredColorScheme(.dark)
     }
 
 }
